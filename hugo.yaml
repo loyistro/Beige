@@ -1,49 +1,52 @@
-baseURL: https://example.org/
-languageCode: en-us
-title: My website
-theme: typo
-taxonomies:
-  tag: tags
-  googleAnalytics: G-xxxxxxxxx
-params:
-  description: A Tech Blog
-  theme: auto
-  colorPalette: default
-  hideHeader: false
-  homeIntroTitle: Hi!
-  homeIntroContent: >
-    I am an Italian Software Engineer with a strong foundation in computer
-    science and a passion for solving complex problems.
+baseURL: "https://example.org/"
+languageCode: "en-us"
+title: "My website"
+theme: "Beige"
 
-    I am interested in a range of topics, including algorithms, distributed systems, databases, and information retrieval.
-  homeCollectionTitle: Posts
-  homeCollection: posts
+taxonomies:
+  tag: "tags"
+  googleAnalytics: "G-xxxxxxxxx"
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  description: "Here is my website"
+  theme: "auto" # auto, light, dark
+  colorPalette: "default" # default, catpuccin, gruvebox, eink
+  hideHeader: false
+  homeIntroTitle: "Hi!"
+  homeIntroContent: >
+    Here is my website.
+  homeCollectionTitle: "Posts"
+  homeCollection: "posts"
   paginationSize: 100
   listSummaries: true
-  listDateFormat: 2 Jan 2006
+  listDateFormat: "Jan 2, 2006"
   breadcrumbs: true
   social:
-    - name: linkedin
-      url: https://www.linkedin.com/in/user/
-    - name: medium
-      url: https://medium.com/@user
-    - name: github
-      url: https://github.com/user
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/user/"
+    - name: "medium"
+      url: "https://medium.com/@user"
+    - name: "github"
+      url: "https://github.com/user"
   menu:
-    - name: home
-      url: /
-    - name: posts
-      url: /posts
-    - name: about
-      url: /about
+    - name: "home"
+      url: "/"
+    - name: "posts"
+      url: "/post"s
+    - name: "about"
+      url: "/about"
   giscus:
     enable: false
-    repo: user/repo
-    repoid: repoId
-    category: General
-    categoryid: categoryId
-    mapping: pathname
-    theme: preferred_color_scheme
+    repo: "user/repo"
+    repoid: "repoId"
+    category: "General"
+    categoryid: "categoryId"
+    mapping: "pathname"
+    theme: "preferred_color_scheme"
 markup:
   highlight:
-    style: algol
+    style: "algol"
