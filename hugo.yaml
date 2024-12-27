@@ -23,7 +23,8 @@ params:
   
   ### Meta description for the website ###
   description: "Here is my website"
-  
+  faviconPath: "/favicon/"
+
   ### Home page icon and title ###
   label:
     text: "Home Title"
