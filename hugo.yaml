@@ -3,24 +3,34 @@ languageCode: "en-us"
 title: "My website"
 theme: "Beige"
 
+### taxonomies ###
 taxonomies:
   tag: "tags"
-  googleAnalytics: "G-xxxxxxxxx"
 
+## Google analytics code ##
+googleAnalytics: "G-xxxxxxxxx" 
+
+### Build Optimization ###
 minify:
   disableXML: true
   minifyOutput: true
 
 params:
-  theme: "auto" # auto, light, dark
-  colorPalette: "beige" # beige, default, catpuccin, gruvebox, eink
-
+  ### Appearance settings ###
+  theme: "auto"             # auto, light, dark
+  colorPalette: "beige"     # beige, default, catpuccin, gruvebox, eink
   hideHeader: false
+  
+  ### Meta description for the website ###
   description: "Here is my website"
+  
+  ### Home page icon and title ###
   label:
     text: "Home Title"
     icon: "/favicon/apple-touch-icon.png"
     iconHeight: 40
+  
+  ### Menu items ###
   menu:
     - name: "home"
       url: "/"
@@ -29,15 +39,24 @@ params:
     - name: "about"
       url: "/about"
   
+  ### Intro on main page, content is markdown ###
   homeIntroTitle: "Hi!"
   homeIntroContent: >
     Here is my website.
+  
+  ### Collection to display on home page ###
   homeCollectionTitle: "Posts"
   homeCollection: "posts"
+  
+  ### Lists parameters ###
   paginationSize: 100
   listSummaries: true
   listDateFormat: "Jan 2, 2006"
+  
+  ### Breadcrumbs ###
   breadcrumbs: true
+  
+  ### Social icons ###
   social:
     - name: "linkedin"
       url: "https://www.linkedin.com/in/user/"
@@ -46,6 +65,7 @@ params:
     - name: "github"
       url: "https://github.com/user"
 
+  ### Giscus comments ###
   giscus:
     enable: false
     repo: "user/repo"
@@ -55,6 +75,7 @@ params:
     mapping: "pathname"
     theme: "preferred_color_scheme"
 
+#### Syntax highligth ####
 markup:
   highlight:
     style: "algol"
