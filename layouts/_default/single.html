@@ -1,7 +1,6 @@
 {{ define "main" }}
 
-{{/* Breadcrumbs */}}
-
+<!-- Breadcrumbs -->
 {{ if not .IsHome }}
 {{ partial "breadcrumbs.html" . }}
 {{ end }}
@@ -10,27 +9,28 @@
 
   <div class="single-intro-container">
 
-    {{/* Title and Summary */}}
-
+    <!-- Title and Summary -->
     <h1 class="single-title">{{ .Title }}</h1>
     {{ with .Param "summary" }}
     <p class="single-summary">{{ . | markdownify }}</p>
     {{ end }}
 
-    {{/* Reading Time */}}
-
+    <!-- Post Meta -->
     <p class="single-readtime">
+      <!-- Post Date -->
       {{ with .Date }}
       {{ $dateMachine := . | time.Format "2006-01-02T15:04:05-07:00" }}
       {{ $dateHuman := . | time.Format (default ":date_long" $.Site.Params.singleDateFormat) }}
       <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
       {{end}}
 
+      <!-- Post Reading Time -->
       {{ if .Param "readTime" }}
       &nbsp; · &nbsp;
       {{ .ReadingTime }} min read
       {{end }}
 
+      <!-- Post Tags -->
       {{ if .Param "showTags" }}
       &nbsp; · &nbsp;
       {{ $taxonomy := "tags" }}
@@ -49,11 +49,9 @@
     {{ end }}
     {{ end }}
     </p>
-
   </div>
 
-  {{/* Table of Content */}}
-
+  <!-- Table of Content -->
   {{ if .Param "toc" }}
   <aside class="toc">
     <p><strong>Table of contents</strong></p>
@@ -61,8 +59,7 @@
   </aside>
   {{ end }}
 
-  {{/* Page content */}}
-
+  <!-- Page Content -->
   <div class="single-content">
     {{ .Content }}
     {{ if .Site.Params.giscus.enable }}
@@ -77,15 +74,12 @@
   </script>
   {{ end }}
 
-
-  {{/* Next prev controls */}}
-
+  <!-- Page Navigation Controls -->
   {{ if not (.Param "hidePagination") }}
   {{ partial "pagination-single.html" . }}
   {{ end }}
 
-  {{/* Back to top */}}
-
+  <!-- Back to Top -->
   {{ if not (.Param "hideBackToTop") }}
   <div class="back-to-top">
     <a href="#top">
