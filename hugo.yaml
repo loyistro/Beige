@@ -71,6 +71,11 @@ params:
     - name: "github"
       url: "https://github.com/user"
 
+  ### Footer ###
+  showFooter: true
+  footerContent: >
+    &copy; 2024 [loyistro/beige](https://github.com/loyistro/Beige) theme
+
   ### Giscus comments ###
   giscus:
     enable: false
