@@ -61,6 +61,7 @@ params:
   maxContent: 5 
   listSummaries: true
   listDateFormat: "Jan 2, 2006"
+  singleDateFormat: "Jan 2, 2006"
   
   ### Breadcrumbs ###
   breadcrumbs: true
