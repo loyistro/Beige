@@ -485,10 +485,10 @@ figcaption {
 }
 
 .not-found a {
-  text-decoration: underline; /* 添加下划线 */
-  text-decoration-color: red; /* 设置下划线颜色为红色 */
-  text-underline-offset: 4px; /* 设置下划线与文字之间的间距 */
-  text-decoration-thickness: 1.5px; /* 设置下划线的粗细 */
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
 }
 
 /* breadcrumbs */
