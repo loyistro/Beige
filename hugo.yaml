@@ -12,10 +12,23 @@ minify:
   minifyOutput: true
 
 params:
-  description: "Here is my website"
   theme: "auto" # auto, light, dark
   colorPalette: "beige" # beige, default, catpuccin, gruvebox, eink
+
   hideHeader: false
+  description: "Here is my website"
+  label:
+    text: "Home Title"
+    icon: "/favicon/apple-touch-icon.png"
+    iconHeight: 40
+  menu:
+    - name: "home"
+      url: "/"
+    - name: "posts"
+      url: "/post"s
+    - name: "about"
+      url: "/about"
+  
   homeIntroTitle: "Hi!"
   homeIntroContent: >
     Here is my website.
@@ -32,13 +45,7 @@ params:
       url: "https://medium.com/@user"
     - name: "github"
       url: "https://github.com/user"
-  menu:
-    - name: "home"
-      url: "/"
-    - name: "posts"
-      url: "/post"s
-    - name: "about"
-      url: "/about"
+
   giscus:
     enable: false
     repo: "user/repo"
@@ -47,6 +54,7 @@ params:
     categoryid: "categoryId"
     mapping: "pathname"
     theme: "preferred_color_scheme"
+
 markup:
   highlight:
     style: "algol"

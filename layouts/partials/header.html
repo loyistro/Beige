@@ -1,11 +1,16 @@
 {{/* Header */}}
 
+<!-- Home page icon and title-->
 <div class="header">
-
     {{ if or (not (.Param "hideHeader")) .IsHome }}
-
+    {{- $label_text := .Site.Params.label.text | default .Site.Title }}
     <h1 class="header-title">
-        <a href="{{ site.BaseURL }}">{{ site.Title }}</a>
+        <a href="{{ .Site.BaseURL }}" style="display: flex; align-items: center;">
+            {{ if .Site.Params.label.icon }}
+                <img src="{{ .Site.Params.label.icon }}" alt="Icon" height="{{ .Site.Params.label.iconHeight }}" />
+            {{ end }}
+            <span>{{ $label_text }}</span>
+        </a>
     </h1>
 
     <div class="flex">
