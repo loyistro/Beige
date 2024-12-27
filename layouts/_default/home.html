@@ -11,7 +11,9 @@
     {{ end }}
 
     {{ with .Site.Params.homeIntroContent }}
-    <p>{{ . | markdownify }}</p>
+    <div class="single-content">
+        <p>{{ . | markdownify }}</p>
+    </div>
     {{ end }}
 </div>
 {{ end }}
