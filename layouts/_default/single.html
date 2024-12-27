@@ -40,7 +40,7 @@
       {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $tag) -}}
 
       <span>
-        <a href="{{ .Permalink }}">#{{ .LinkTitle }}</a>
+        <span style="color: red;">#</span>{{ .LinkTitle }}
       </span>
       
       {{ end }}
@@ -51,10 +51,6 @@
     </p>
 
   </div>
-
-  
-
-
 
   {{/* Table of Content */}}
 
