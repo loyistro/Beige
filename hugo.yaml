@@ -16,6 +16,9 @@ minify:
   minifyOutput: true
 
 params:
+  ### Environment settings for umami and GA###
+  Environment: "production"
+
   ### Appearance settings ###
   theme: "auto"             # auto, light, dark
   colorPalette: "beige"     # beige, default, catpuccin, gruvebox, eink
