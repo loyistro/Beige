@@ -76,12 +76,12 @@ a {
 
 pre {
   padding: var(--code-padding);
-  border: 1px solid var(--code-border);
+  border: 1px solid var(--chroma-border);
   overflow: scroll;
   border-radius: var(--code-border-radius);
   margin-top: var(--code-margin-top);
   margin-bottom: var(--code-margin-bottom);
-  background-color: var(--code-background) !important;
+  background-color: var(--chroma-background) !important;
   overflow-x: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -555,7 +555,7 @@ th {
 }
 
 table code {
-  background-color: var(--code-background);
+  background-color: var(--chroma-background);
   border-radius: 3px;
   padding: 2px;
 }

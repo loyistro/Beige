@@ -39,7 +39,7 @@ params:
     - name: "home"
       url: "/"
     - name: "posts"
-      url: "/post"s
+      url: "/post"
     - name: "about"
       url: "/about"
   
@@ -93,4 +93,15 @@ params:
 #### Syntax highligth ####
 markup:
   highlight:
-    style: "algol"
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: true
+    hl_Lines: ""
+    hl_inline: false
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    tabWidth: 4
+    style: "base16-snazzy"
