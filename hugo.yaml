@@ -14,7 +14,7 @@ minify:
 params:
   description: "Here is my website"
   theme: "auto" # auto, light, dark
-  colorPalette: "default" # default, catpuccin, gruvebox, eink
+  colorPalette: "beige" # beige, default, catpuccin, gruvebox, eink
   hideHeader: false
   homeIntroTitle: "Hi!"
   homeIntroContent: >
