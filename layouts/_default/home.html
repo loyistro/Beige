@@ -32,32 +32,29 @@
 </div>
 {{ end }}
 
+<!-- Support multi collection-->
 {{/* Collection Section */}}
-
-{{ if .Site.Params.homeCollection }}
-
+{{ if .Site.Params.showhomeCollection }}
+<hr>
 <div class="list-container">
-    {{ with .Site.Params.homeCollectionTitle}}
-    <h1> {{ . }} </h1>
-    {{ end }}
+    {{ range .Site.Params.homeCollection }}
+        <h2>{{ .title }}</h2>
+        {{ $pages := where $.Site.RegularPages "Section" .section }}
+        {{ $maxContent := $.Site.Params.maxContent | default 10 }}
+        {{ $sortedPages := sort $pages "Date" "desc" }}
 
-    {{ $pages := where .Site.RegularPages "Section" .Site.Params.homeCollection
-    }}
+        {{ range first $maxContent $sortedPages }}
+            {{ partial "post-entry.html" . }}
+        {{ end }}
 
-    {{ $paginationSize := 1}}
-    {{ if (gt .Site.Params.paginationSize 0) }}
-    {{ $paginationSize = .Site.Params.paginationSize }}
-    {{ end }}
-
-    {{ $paginator := .Paginate $pages $paginationSize }}
-
-    {{ range $index, $page := $paginator.Pages }}
-    {{ partial "post-entry.html" $page}}
-    {{ end }}
-
-    {{ partial "pagination-controls.html" $paginator}}
-
+        {{ if not (gt (len $sortedPages) 0) }}
+            <p>No posts available for this collection.</p>
+        {{ end }}
     {{ end }}
 </div>
+
+{{ else }}
+
+{{ end }}
 
 {{ end }}

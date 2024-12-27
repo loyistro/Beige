@@ -46,11 +46,15 @@ params:
     Here is my website.
   
   ### Collection to display on home page ###
-  homeCollectionTitle: "Posts"
-  homeCollection: "posts"
+  homeCollection:
+   - section: "notes"
+     title: "Last Notes"
+   - section: "articles"
+     title: "Last Articles"
   
   ### Lists parameters ###
   paginationSize: 100
+  maxContent: 5 
   listSummaries: true
   listDateFormat: "Jan 2, 2006"
   
