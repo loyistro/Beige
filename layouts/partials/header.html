@@ -13,21 +13,26 @@
         </a>
     </h1>
 
+    <!-- Menu item -->
     <div class="flex">
         {{ $currentPage := . }}
-
-        {{ with site.Params.menu }}
+        {{ with .Site.Params.menu }}
         {{ range . }}
-      
-        <p class="small {{ if eq .name (lower $currentPage.Name) }} bold {{end}}">
-            <a href="{{ .url }}" {{ if and (isset . "newTab") .newTab }}target="_blank" rel="noopener noreferrer"{{ end }}>
-                /{{.name }}
+    
+        {{- $menu_item_url := (cond (strings.HasSuffix .url "/") .url (printf "%s/" .url)) | absLangURL }}
+        {{- $page_url := $currentPage.Permalink | absLangURL }}
+        
+        <p class="small
+        {{ if or 
+            (and $currentPage.IsHome (eq .name "home"))             
+            (eq $menu_item_url $page_url)                 
+            (eq .name (lower $currentPage.Section))      
+        }} bold {{ end }}">
+            <a href="{{ .url | absLangURL }}"
+               {{ if and (isset . "newTab") .newTab }}target="_blank" rel="noopener noreferrer"{{ end }}>
+                /{{ .name }}
             </a>
         </p>
         {{ end }}
         {{ end }}
     </div>
-
-    {{ end }}
-
-</div>
