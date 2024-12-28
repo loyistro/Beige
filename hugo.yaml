@@ -62,7 +62,7 @@ params:
      title: "Last section2"
   
   ### Lists parameters ###
-  paginationSize: 100
+  paginationSize: 5
   maxContent: 5 
   listSummaries: true
   listDateFormat: "Jan 2, 2006"
