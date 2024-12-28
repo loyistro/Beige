@@ -8,6 +8,7 @@ keywords:
     - Javascript
     - ES2015
     - ES6
+summary: JavaScript Comparison operation at a glance
 ---
 
 When given a scenario like:

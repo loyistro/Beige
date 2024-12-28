@@ -14,8 +14,10 @@
             </a>
         </p>
 
-        {{ if .Site.Params.listSummaries }}
-        <p class="line-summary"> {{ .Summary }} </p>
+        {{ if .Site.Params.showlistSummaries }}
+            {{ if .Params.summary }}
+                <p class="line-summary"> {{ .Params.summary }} </p>
+            {{ end }}
         {{ end }}
     </div>
 </div>
