@@ -301,6 +301,10 @@ footer a {
   align-items: center;
 }
 
+.pagination-control a {
+  text-decoration: none;
+}
+
 .page-number {
   min-width: 3rem;
   margin-left: .5rem;

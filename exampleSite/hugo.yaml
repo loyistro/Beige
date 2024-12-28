@@ -20,7 +20,7 @@ params:
   Environment: "production"
 
   ### Appearance settings ###
-  theme: "auto"             # auto, light, dark
+  theme: "dark"             # auto, light, dark
   colorPalette: "gofun"     # beige, default, catpuccin, gruvebox, eink
   hideHeader: false
   
