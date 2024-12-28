@@ -570,7 +570,10 @@ figcaption {
   font-family: var(--font-mono);
   font-size: small;
   margin-bottom: 2rem;
-  /* margin-top: -3rem; */
+}
+
+.back-to-top a {
+  text-decoration: none;
 }
 
 /* Code in paragraphs */
