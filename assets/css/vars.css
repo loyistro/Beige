@@ -41,6 +41,7 @@
 
     --toc-margin-top: 2rem;
     --toc-margin-bottom: 3rem;
+    --toc-padding: .8rem;
 
     /* Code */
     --code-padding: 1.5rem;
