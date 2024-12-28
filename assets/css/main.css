@@ -1,3 +1,4 @@
+/* Basic */
 html {
   scroll-behavior: smooth;
 }
@@ -66,6 +67,14 @@ ul {
 
 li {
   margin-left: var(--li-indent);
+}
+
+a {
+  color: var(--content-primary);
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
 }
 
 /* Code blocks */
@@ -389,7 +398,6 @@ footer a {
 /* Table of contents */
 
 .toc {
-  font-size: var(--p-font-size);
   line-height: calc(.9 * var(--p-line-height));
   margin-top: var(--toc-margin-top);
   margin-bottom: var(--toc-margin-bottom);
