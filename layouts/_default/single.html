@@ -33,19 +33,22 @@
       <!-- Post Tags -->
       {{ if .Param "showTags" }}
       &nbsp; · &nbsp;
-      {{ $taxonomy := "tags" }}
-      {{ with .Param $taxonomy }}
-
-      {{ range $index, $tag := . }}
-      {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $tag) -}}
-
-      <a href="{{ .RelPermalink }}">
-        #{{ .LinkTitle }}
-      </a>
       
-      {{ end }}
-      {{ end }}
+      <span class="single-tags">
+        {{ $taxonomy := "tags" }}
+        {{ with .Param $taxonomy }}
+
+        {{ range $index, $tag := . }}
+        {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $tag) -}}
+
+        <a href="{{ .RelPermalink }}">
+          #{{ .LinkTitle }}
+        </a>
       
+        {{ end }}
+        {{ end }}
+      </span>
+
     {{ end }}
     {{ end }}
     </p>

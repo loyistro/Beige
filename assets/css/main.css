@@ -354,6 +354,15 @@ footer a {
   margin-bottom: 5rem;
 }
 
+.single-tags {
+  margin-top: -1rem;
+}
+
+.single-tags a {
+  margin-right: .5rem;
+}
+
+
 /* Single pagination */
 
 .single-pagination {
