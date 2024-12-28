@@ -189,6 +189,21 @@ hr:before {
   text-decoration: none;
 }
 
+/* Menu */
+
+.menu a {
+  text-decoration: none;
+}
+
+.menu .active a {
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: black;
+  text-decoration-thickness: 2px;
+}
+
+
+
 /* Footer */
 
 footer {
