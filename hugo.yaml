@@ -39,8 +39,10 @@ params:
     - name: "home"
       url: "/"
       newTab: false
-    - name: "posts"
-      url: "/post"
+    - name: "Section1"
+      url: "/section1/"
+    - name: "Section2"
+      url: "/section2/"
       newTab: false
     - name: "about"
       url: "/about"
@@ -54,10 +56,10 @@ params:
   ### Collection to display on home page ###
   showhomeCollection: true
   homeCollection:
-   - section: "notes"
-     title: "Last Notes"
-   - section: "articles"
-     title: "Last Articles"
+   - section: "section1"
+     title: "Last section1"
+   - section: "section2"
+     title: "Last section2"
   
   ### Lists parameters ###
   paginationSize: 100
