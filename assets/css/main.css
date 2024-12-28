@@ -264,7 +264,7 @@ footer a {
 }
 
 .line-summary {
-  font-size: smaller;
+  font-size: small;
   font-style: italic;
   color: var(--content-secondary);
   margin-bottom: 0;
