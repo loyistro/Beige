@@ -6,8 +6,8 @@
 &nbsp; · &nbsp;
 2 min read
 &nbsp; · &nbsp;
-<span><a href=http://localhost:1313/tags/javascript/><span style=color:red>#</span>JavaScript</a>
-</span><span><a href=http://localhost:1313/tags/vue.js/><span style=color:red>#</span>Vue.js</a></span></p></div><aside class=toc><p><strong>Table of contents</strong></p><nav id=TableOfContents><ul><li><a href=#global>Global</a></li><li><a href=#pre-reoute>Pre-reoute</a></li><li><a href=#in-component>In-component</a></li><li><a href=#resolve-flow>Resolve flow</a></li></ul></nav></aside><div class=single-content><p>Navigation guards are provided by <code>vue-router</code>.
+<a href=/tags/javascript/><span style=color:red>#</span>JavaScript
+</a><a href=/tags/vue.js/><span style=color:red>#</span>Vue.js</a></p></div><aside class=toc><p><strong>Table of contents</strong></p><nav id=TableOfContents><ul><li><a href=#global>Global</a></li><li><a href=#pre-reoute>Pre-reoute</a></li><li><a href=#in-component>In-component</a></li><li><a href=#resolve-flow>Resolve flow</a></li></ul></nav></aside><div class=single-content><p>Navigation guards are provided by <code>vue-router</code>.
 Three ways to hook:</p><ul><li>globally</li><li>per-route</li><li>in-component</li></ul><p><strong>NOTE:</strong></p><ol><li>Params or query changes won&rsquo;t trigger enter/leave navigation guards. You can either watch the <code>$route</code> object to react to those changes, or use the <code>beforeRouteUpdate</code> in-component guard.</li><li>Make sure to always call the next function, otherwise the hook will never be resolved.</li></ol><h2 class=heading id=global>Global
 <a href=#global>#</a></h2><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Javascript data-lang=Javascript><span style=display:flex><span><span style=color:#ff6ac1>const</span> router <span style=color:#ff6ac1>=</span> <span style=color:#ff6ac1>new</span> VueRouter({ ... })
 </span></span><span style=display:flex><span>

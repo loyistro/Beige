@@ -3,7 +3,7 @@ title: php的闭包特性
 date: 2017-01-11 18:39:17
 summary: "php的闭包特性"
 description: ""
-tags: ["php", ""]
+tags: ["php"]
 toc: true
 readTime: true
 autonumber: true

@@ -3,7 +3,7 @@ title: Bind specific arguments of a function
 date: 2019-03-08 09:00:00
 summary: "Bind specific arguments of a function"
 description: ""
-tags: ["JavaScript", ""]
+tags: ["JavaScript"]
 toc: true
 readTime: true
 autonumber: true

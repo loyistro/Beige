@@ -3,7 +3,7 @@ title: ruby学习笔记
 date: 2016-12-08 22:54:49
 summary: "ruby学习笔记"
 description: ""
-tags: ["ruby", ""]
+tags: ["ruby"]
 toc: true
 readTime: true
 autonumber: true

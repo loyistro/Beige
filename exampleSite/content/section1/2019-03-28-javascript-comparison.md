@@ -3,7 +3,7 @@ title: JavaScript Comparison operation at a glance
 date: 2019-03-28 09:00:00
 summary: "JavaScript Comparison operation at a glance"
 description: ""
-tags: ["JavaScript", ""]
+tags: ["JavaScript"]
 toc: true
 readTime: true
 autonumber: true

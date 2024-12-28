@@ -6,8 +6,7 @@
 &nbsp; · &nbsp;
 1 min read
 &nbsp; · &nbsp;
-<span><span style=color:red>#</span>Php
-</span><span><span style=color:red>#</span>Tags</span></p></div><aside class=toc><p><strong>Table of contents</strong></p><nav id=TableOfContents></nav></aside><div class=single-content><p>闭包和匿名函数在<code>PHP 5.3.0</code>引入，并且PHP将两者视为相同的概念。闭包其实是伪装成函数的对象，它的实质其实是<code>Closure</code>实例。</p><p>创建闭包非常简单：</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#ff5c57>$c</span> <span style=color:#ff6ac1>=</span> <span style=color:#ff6ac1>function</span>(<span style=color:#ff5c57>$name</span>) {
+<a href=/tags/php/><span style=color:red>#</span>Php</a></p></div><aside class=toc><p><strong>Table of contents</strong></p><nav id=TableOfContents></nav></aside><div class=single-content><p>闭包和匿名函数在<code>PHP 5.3.0</code>引入，并且PHP将两者视为相同的概念。闭包其实是伪装成函数的对象，它的实质其实是<code>Closure</code>实例。</p><p>创建闭包非常简单：</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#ff5c57>$c</span> <span style=color:#ff6ac1>=</span> <span style=color:#ff6ac1>function</span>(<span style=color:#ff5c57>$name</span>) {
 </span></span><span style=display:flex><span>    <span style=color:#ff6ac1>return</span> sprintf(<span style=color:#5af78e>&#34;Hello World! Hello %s!&#34;</span>, <span style=color:#ff5c57>$name</span>);
 </span></span><span style=display:flex><span>};
 </span></span><span style=display:flex><span>

@@ -3,7 +3,7 @@ title: netfilter/iptables 笔记
 date: 2016-11-29 21:08:52
 summary: "netfilter/iptables 笔记"
 description: ""
-tags: ["Linux", ""]
+tags: ["Linux"]
 toc: true
 readTime: true
 autonumber: true
