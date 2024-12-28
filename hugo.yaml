@@ -38,10 +38,13 @@ params:
   menu:
     - name: "home"
       url: "/"
+      newTab: false
     - name: "posts"
       url: "/post"
+      newTab: false
     - name: "about"
       url: "/about"
+      newTab: false
   
   ### Intro on main page, content is markdown ###
   homeIntroTitle: "Hi!"
