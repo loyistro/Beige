@@ -162,6 +162,7 @@ hr:before {
   font-size: small;
   font-family: var(--font-mono);
   margin-top: var(--header-menu-top-gap);
+  margin-bottom: var(--header-menu-bottom-gap);
   margin-right: var(--header-menu-side-gap);
 }
 
