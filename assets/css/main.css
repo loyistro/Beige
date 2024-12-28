@@ -217,6 +217,11 @@ footer {
   margin-bottom: var(--p-margin-bottom);
 }
 
+footer a {
+  text-decoration-color: var(--content-secondary);
+  text-decoration-thickness: 1px;
+}
+
 /* Posts list  */
 
 .post-line {
