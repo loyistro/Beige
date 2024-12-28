@@ -309,6 +309,7 @@ footer a {
 }
 
 .single-readtime {
+  font-size: small;
   margin-top: .5rem;
   color: var(--content-secondary);
 }
