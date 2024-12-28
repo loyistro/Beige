@@ -40,7 +40,7 @@
       {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $tag) -}}
 
       <a href="{{ .RelPermalink }}">
-        <span style="color: red;">#</span>{{ .LinkTitle }}
+        #{{ .LinkTitle }}
       </a>
       
       {{ end }}
