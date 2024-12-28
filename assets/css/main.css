@@ -362,15 +362,6 @@ footer a {
   margin-bottom: 3rem;
 }
 
-.single-pagination a {
-  margin-left: .4rem;
-  margin-right: .4rem;
-  text-decoration: underline;
-  text-decoration-color: red;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1.5px;
-}
-
 .single-pagination hr {
   margin: 0;
 }
