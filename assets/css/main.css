@@ -624,7 +624,7 @@ blockquote {
   color: var(--content-secondary);
   font-style: italic;
   font-weight: 200;
-  font-size: smaller;
+  font-size: medium;
 }
 
 blockquote p {
