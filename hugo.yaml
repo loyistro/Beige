@@ -21,7 +21,7 @@ params:
 
   ### Appearance settings ###
   theme: "auto"             # auto, light, dark
-  colorPalette: "beige"     # beige, default, catpuccin, gruvebox, eink
+  colorPalette: "gofun"     # beige, default, catpuccin, gruvebox, eink
   hideHeader: false
   
   ### Meta description for the website ###
