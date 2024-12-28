@@ -1,0 +1,128 @@
+<!doctype html><html lang=en-us dir=ltr><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=utf-8><meta name=viewport content="width=device-width"><link rel=icon type=image/ico href=http://localhost:1313/favicon//favicon.ico><link rel=icon type=image/png sizes=16x16 href=http://localhost:1313/favicon//favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=http://localhost:1313/favicon//favicon-32x32.png><link rel=icon type=image/png sizes=192x192 href=http://localhost:1313/favicon//android-chrome-192x192.png><link rel=apple-touch-icon sizes=180x180 href=http://localhost:1313/favicon//apple-touch-icon.png><meta name=description content><title>Racket notes | My website
+</title><link rel=canonical href=http://localhost:1313/section2/2020-02-29-racket/><meta property="og:url" content="http://localhost:1313/section2/2020-02-29-racket/"><meta property="og:site_name" content="My website"><meta property="og:title" content="Racket notes"><meta property="og:description" content='Basic # #lang racket (provide (all-defined-out)) ;this is a comment (define s "hello") (define x 3) (define y (+ x 2)) (define cube1 (lambda (x) (* x (* x x)))) (define cube2 (lambda (x) (* x x x))) (define (cube3 x) (* x x x)) (define (pow1 x y) (if (=y 0) 1 (* x (pow1 x (- y 1))))) ; currying (define pow2 (lambda (x) (lambda (y) (pow1 x y)))) List # Empty list: null () doesn"t work for null but &#39;() does build a list: (list e1 ... en) Constructor: cons Access head of list: car Access tail of list: cdr Check for empty: null? Syntax # A term is either:'><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="section2"><meta property="article:published_time" content="2020-02-29T09:00:00+00:00"><meta property="article:modified_time" content="2020-02-29T09:00:00+00:00"><meta property="article:tag" content="Racket"><link rel=stylesheet href=/assets/combined.min.07ce338b4bb43d097400d7890f492d5be8fce1156f207c6d7cf6b096c5338732.css media=all></head><body class=auto><div class=content><header><div class=header><h1 class=header-title><a href=http://localhost:1313/ style=display:flex;align-items:center><img src=/favicon/apple-touch-icon.png alt=Icon height=40>
+<span>Home Title</span></a></h1><div class=flex><p class=small><a href=http://localhost:1313/>/home</a></p><p class=small><a href=http://localhost:1313/section1/>/Section1</a></p><p class=small><a href=http://localhost:1313/section2/>/Section2</a></p><p class=small><a href=http://localhost:1313/about>/about</a></p></div></header><main class=main><div class=breadcrumbs><a href=/>Home</a>
+<span class=breadcrumbs-separator>> </span><a href=/section2/>Section 2</a>
+<span class=breadcrumbs-separator>> </span><a class=breadcrumbs-current href=/section2/2020-02-29-racket/>Racket notes</a></div><div><div class=single-intro-container><h1 class=single-title>Racket notes</h1><p class=single-readtime><time datetime=2020-02-29T09:00:00+00:00>Feb 29, 2020</time></p></div><div class=single-content><h2 class=heading id=basic>Basic
+<a href=#basic>#</a></h2><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-racket data-lang=racket><span style=display:flex><span><span style=color:#ff6ac1>#lang </span>racket
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>provide</span> (<span style=color:#ff6ac1>all-defined-out</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#78787e>;this is a comment</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> s <span style=color:#5af78e>&#34;hello&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> x <span style=color:#ff9f43>3</span>)
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> y (<span style=color:#ff5c57>+</span> x <span style=color:#ff9f43>2</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> cube1
+</span></span><span style=display:flex><span>  (<span style=color:#ff6ac1>lambda</span> (x)
+</span></span><span style=display:flex><span>    (<span style=color:#ff5c57>*</span> x (<span style=color:#ff5c57>*</span> x x))))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> cube2
+</span></span><span style=display:flex><span>  (<span style=color:#ff6ac1>lambda</span> (x)
+</span></span><span style=display:flex><span>    (<span style=color:#ff5c57>*</span> x x x)))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> (cube3 x)
+</span></span><span style=display:flex><span>  (<span style=color:#ff5c57>*</span> x x x))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> (pow1 x y)
+</span></span><span style=display:flex><span>  (<span style=color:#ff6ac1>if</span> (=y <span style=color:#ff9f43>0</span>)
+</span></span><span style=display:flex><span>      <span style=color:#ff9f43>1</span>
+</span></span><span style=display:flex><span>      (<span style=color:#ff5c57>*</span> x (pow1 x (<span style=color:#ff5c57>-</span> y <span style=color:#ff9f43>1</span>)))))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#78787e>; currying</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> pow2
+</span></span><span style=display:flex><span>  (<span style=color:#ff6ac1>lambda</span> (x)
+</span></span><span style=display:flex><span>    (<span style=color:#ff6ac1>lambda</span> (y)
+</span></span><span style=display:flex><span>      (pow1 x y))))<span style=color:#ff5c57>
+</span></span></span></code></pre></div><h3 class=heading id=list>List
+<a href=#list>#</a></h3><ul><li>Empty list: <code>null</code><ul><li><code>()</code> doesn"t work for <code>null</code> but <code>'()</code> does</li></ul></li><li>build a list: <code>(list e1 ... en)</code></li><li>Constructor: <code>cons</code></li><li>Access head of list: <code>car</code></li><li>Access tail of list: <code>cdr</code></li><li>Check for empty: <code>null?</code></li></ul><h3 class=heading id=syntax>Syntax
+<a href=#syntax>#</a></h3><p>A term is either:</p><ul><li>An atom like <code>#t, #f, 34, "hi", null, 4.0, x,...</code></li><li>A special form like <code>define, lambda, if</code></li><li>A sequence of terms in parentheses: <code>(t1 t2 t3)</code></li><li>Can use <code>[</code> anything you use <code>(</code></li></ul><p>Remember parentheses matters! For example:
+<code>(e)</code> means call e with 0 argument.</p><h3 class=heading id=dynamic-typing>Dynamic typing
+<a href=#dynamic-typing>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-racket data-lang=racket><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> lst (<span style=color:#ff5c57>list</span> <span style=color:#ff9f43>#t</span> <span style=color:#5af78e>&#34;hi&#34;</span> <span style=color:#ff9f43>1</span> (<span style=color:#ff5c57>list</span> <span style=color:#ff9f43>2</span> <span style=color:#ff9f43>3</span> <span style=color:#ff9f43>4</span>)))<span style=color:#ff5c57>
+</span></span></span></code></pre></div><h3 class=heading id=cond>Cond
+<a href=#cond>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-racket data-lang=racket><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> (sum3 xs)
+</span></span><span style=display:flex><span>  (<span style=color:#ff6ac1>cond</span> [(<span style=color:#ff5c57>null?</span> xs) <span style=color:#ff9f43>0</span>]
+</span></span><span style=display:flex><span>        [(<span style=color:#ff5c57>number?</span> (<span style=color:#ff5c57>car</span> xs)) (<span style=color:#ff5c57>+</span> (<span style=color:#ff5c57>car</span> xs) (sum3 (<span style=color:#ff5c57>cdr</span> xs)))]
+</span></span><span style=display:flex><span>        [<span style=color:#ff9f43>#t</span> <span style=color:#ff9f43>0</span>]))<span style=color:#ff5c57>
+</span></span></span></code></pre></div><h3 class=heading id=what-is-true>What is true?
+<a href=#what-is-true>#</a></h3><p>Anything that is not <code>#f</code> is true <code>#t</code>.</p><h3 class=heading id=local-bindings>Local bindings
+<a href=#local-bindings>#</a></h3><h4 class=heading id=letletletrec>let/let*/letrec
+<a href=#letletletrec>#</a></h4><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-racket data-lang=racket><span style=display:flex><span>(<span style=color:#ff6ac1>let</span> ([x1 e1]
+</span></span><span style=display:flex><span>      [x2 e2]
+</span></span><span style=display:flex><span>      <span style=color:#ff6ac1>...</span>
+</span></span><span style=display:flex><span>      [xn en])
+</span></span><span style=display:flex><span>  e)<span style=color:#ff5c57>
+</span></span></span></code></pre></div><p>Racket uses the environment <strong>before</strong> the let-expression to evaluate <code>e1 e2 ... en</code>, which means if <code>en</code> uses <code>x1</code>, <code>x2</code>, that would mean some outer variables of the same name. Instead, the expressions in <code>let*</code> are evaluated in the environment produced from the previous bindings (later ones shadow) .</p><p>The expressions in <code>letrec</code> are evaluated in the environment that includes all th bindings. It is needed for mutual recursion.</p><h3 class=heading id=set>set!
+<a href=#set>#</a></h3><p>Racket has assignment statements:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-racket data-lang=racket><span style=display:flex><span>(<span style=color:#ff6ac1>set!</span> x e)<span style=color:#ff5c57>
+</span></span></span></code></pre></div><p>Once you have side-effects, sequences are useful:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-racket data-lang=racket><span style=display:flex><span>(<span style=color:#ff6ac1>begin</span> e1 e2 e3)<span style=color:#ff5c57>
+</span></span></span></code></pre></div><h3 class=heading id=consmcons>cons/mcons
+<a href=#consmcons>#</a></h3><p><code>cons</code> produces pairs or lists. (Actually lists are just extented pairs)</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-racket data-lang=racket><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> pr (<span style=color:#ff5c57>cons</span> <span style=color:#ff9f43>1</span> (<span style=color:#ff5c57>cons</span> <span style=color:#ff9f43>#t</span> <span style=color:#5af78e>&#34;hi&#34;</span>))) <span style=color:#78787e>; is a pair</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> lst (<span style=color:#ff5c57>cons</span> <span style=color:#ff9f43>1</span> (<span style=color:#ff5c57>cons</span> <span style=color:#ff9f43>#t</span> (<span style=color:#ff5c57>cons</span> <span style=color:#5af78e>&#34;hi&#34;</span> <span style=color:#ff5c57>null</span>)))) <span style=color:#78787e>; is a list</span>
+</span></span></code></pre></div><p><code>mcons</code> is another way to make pairs which allows you to change the value inside piars:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-racket data-lang=racket><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> mpr (<span style=color:#ff5c57>mcons</span> <span style=color:#ff9f43>1</span> (<span style=color:#ff5c57>mcons</span> <span style=color:#ff9f43>#t</span> <span style=color:#5af78e>&#34;hi&#34;</span>)))
+</span></span><span style=display:flex><span>(<span style=color:#ff5c57>mcar</span> mpr) <span style=color:#78787e>; 1</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff5c57>mcdr</span> mpr) <span style=color:#78787e>; (mcons (#t &#34;hi&#34;))</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff5c57>set-mcdr!</span> mpr <span style=color:#ff9f43>47</span>) <span style=color:#78787e>; mpr becomes (mcons 1 47)</span>
+</span></span></code></pre></div><p>Related form:</p><ul><li><code>mcons</code></li><li><code>mcar</code></li><li><code>mcdr</code></li><li><code>mpair?</code></li><li><code>set-mcar!</code></li><li><code>set-mcdr!</code></li></ul><h2 class=heading id=delayed-evaluation-and-thunk>Delayed Evaluation and Thunk
+<a href=#delayed-evaluation-and-thunk>#</a></h2><p>In most programming languages, given <code>e1 e2 ... en</code>, the function arguments <code>e2, ..., en</code> are evaluated once before the function body is executed.
+So if we define a function like:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rkt data-lang=rkt><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> (my-if-bad x y z) (<span style=color:#ff6ac1>if</span> x y z))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> (factorial-wrong x)
+</span></span><span style=display:flex><span>  (my-if-bad (<span style=color:#ff5c57>=</span> x <span style=color:#ff9f43>0</span>)
+</span></span><span style=display:flex><span>             <span style=color:#ff9f43>1</span>
+</span></span><span style=display:flex><span>             (<span style=color:#ff5c57>*</span> x (factorial-wrong (<span style=color:#ff5c57>-</span> x <span style=color:#ff9f43>1</span>)))))<span style=color:#ff5c57>
+</span></span></span></code></pre></div><p>if we use <code>if</code> instead of <code>my-if-bad</code>, <code>factorial-wrong</code> acts just like we want. But with <code>my-if-bad</code>, the function never stops because the two branches evaluate at the same time.</p><p>Thanks to lambda, we can delay the evaluation, using the fact that function bodies are not evaluated until the function gets called.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rkt data-lang=rkt><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> (my-if x y z) (<span style=color:#ff6ac1>if</span> x (y) (z)))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> (factorial x)
+</span></span><span style=display:flex><span>  (my-if (<span style=color:#ff5c57>=</span> x <span style=color:#ff9f43>0</span>)
+</span></span><span style=display:flex><span>         (<span style=color:#ff6ac1>lambda</span> () <span style=color:#ff9f43>1</span>)
+</span></span><span style=display:flex><span>         (<span style=color:#ff6ac1>lambda</span> () (<span style=color:#ff5c57>*</span> x (factorial (<span style=color:#ff5c57>-</span> x <span style=color:#ff9f43>1</span>))))))<span style=color:#ff5c57>
+</span></span></span></code></pre></div><p>The general idiom of using a zero-argument function to delay evaluation is also called a <strong>thunk</strong> (or, thunk the argument).</p><p>By the way,</p><h2 class=heading id=lazy-evaluationcall-by-needpromises>Lazy-evaluation/Call-by-need/Promises
+<a href=#lazy-evaluationcall-by-needpromises>#</a></h2><h2 class=heading id=streams>Streams
+<a href=#streams>#</a></h2><p>A stream is an infinite sequence of values.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-racket data-lang=racket><span style=display:flex><span><span style=color:#ff6ac1>#lang </span>racket
+</span></span><span style=display:flex><span><span style=color:#78787e>; 1 1 1 1 ...</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> ones (<span style=color:#ff6ac1>lambda</span> () (<span style=color:#ff5c57>cons</span> <span style=color:#ff9f43>1</span> ones)))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#78787e>; 1 2 3 4 ...</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> nats
+</span></span><span style=display:flex><span>  (<span style=color:#ff6ac1>letrec</span> ([f (<span style=color:#ff6ac1>lambda</span> (x) (<span style=color:#ff5c57>cons</span> x (<span style=color:#ff6ac1>lambda</span> () (f (<span style=color:#ff5c57>+</span> x <span style=color:#ff9f43>1</span>)))))])
+</span></span><span style=display:flex><span>     (<span style=color:#ff6ac1>lambda</span> () (f <span style=color:#ff9f43>1</span>))))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#78787e>; 2 4 6 8 ...</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> power-of-two
+</span></span><span style=display:flex><span>  (<span style=color:#ff6ac1>letrec</span> ([f (<span style=color:#ff6ac1>lambda</span> (x) (<span style=color:#ff5c57>cons</span> x (<span style=color:#ff6ac1>lambda</span> () (f (<span style=color:#ff5c57>*</span> x <span style=color:#ff9f43>2</span>)))))])
+</span></span><span style=display:flex><span>    (<span style=color:#ff6ac1>lambda</span> () (f <span style=color:#ff9f43>2</span>))))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#78787e>; higher-order maker</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> (stream-maker fn arg)
+</span></span><span style=display:flex><span>  (<span style=color:#ff6ac1>letrec</span> ([f (<span style=color:#ff6ac1>lambda</span> (x) (<span style=color:#ff5c57>cons</span> x (<span style=color:#ff6ac1>lambda</span> () (f (fn x arg)))))])
+</span></span><span style=display:flex><span>    (<span style=color:#ff6ac1>lambda</span> () (f arg))))<span style=color:#ff5c57>
+</span></span></span></code></pre></div><h2 class=heading id=memoization-not-memorization>Memoization (Not Memorization)
+<a href=#memoization-not-memorization>#</a></h2><p>Memoization is another idiom related to lazy evaluation that does not actually use thunks. To implement memoization we do use mutation: Whenever the function is called with an argument we have not seen before, we compute the answer and then add the result to the table.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-racket data-lang=racket><span style=display:flex><span>(<span style=color:#ff6ac1>define</span> fibonacci
+</span></span><span style=display:flex><span>  (<span style=color:#ff6ac1>letrec</span>([memo <span style=color:#ff5c57>null</span>]
+</span></span><span style=display:flex><span>          [f (<span style=color:#ff6ac1>lambda</span> (x)
+</span></span><span style=display:flex><span>               (<span style=color:#ff6ac1>let</span> ([ans (<span style=color:#ff5c57>assoc</span> x memo)])
+</span></span><span style=display:flex><span>                 (<span style=color:#ff6ac1>if</span> ans
+</span></span><span style=display:flex><span>                     (<span style=color:#ff5c57>cdr</span> ans)
+</span></span><span style=display:flex><span>                     (<span style=color:#ff6ac1>let</span> ([new-ans (<span style=color:#ff6ac1>if</span> (<span style=color:#ff6ac1>or</span> (<span style=color:#ff5c57>=</span> x <span style=color:#ff9f43>1</span>) (<span style=color:#ff5c57>=</span> x <span style=color:#ff9f43>2</span>))
+</span></span><span style=display:flex><span>                                        <span style=color:#ff9f43>1</span>
+</span></span><span style=display:flex><span>                                        (<span style=color:#ff5c57>+</span> (f (<span style=color:#ff5c57>-</span> x <span style=color:#ff9f43>1</span>))
+</span></span><span style=display:flex><span>                                           (f (<span style=color:#ff5c57>-</span> x <span style=color:#ff9f43>2</span>))))])
+</span></span><span style=display:flex><span>                       (<span style=color:#ff6ac1>begin</span>
+</span></span><span style=display:flex><span>                         (<span style=color:#ff6ac1>set!</span> memo (<span style=color:#ff5c57>cons</span> (<span style=color:#ff5c57>cons</span> x new-ans) memo))
+</span></span><span style=display:flex><span>                         new-ans)))))])
+</span></span><span style=display:flex><span>    f))<span style=color:#ff5c57>
+</span></span></span></code></pre></div><h2 class=heading id=macros>Macros
+<a href=#macros>#</a></h2><p>Think about these things about macros and how Racket handles them better than other macro systems(notably C/C++)</p><ul><li>Tokenization</li><li>Parenthesization</li><li>Scope</li></ul><h3 class=heading id=syntax-1>Syntax
+<a href=#syntax-1>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-racket data-lang=racket><span style=display:flex><span>(<span style=color:#ff6ac1>define-syntax</span> myif
+</span></span><span style=display:flex><span>  (<span style=color:#ff6ac1>syntax-rules</span> (then <span style=color:#ff6ac1>else</span>)
+</span></span><span style=display:flex><span>    [(my-if e1 then e2 <span style=color:#ff6ac1>else</span> e3)
+</span></span><span style=display:flex><span>     (<span style=color:#ff6ac1>if</span> e1 e2 e3)]))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(<span style=color:#ff6ac1>define-syntax</span> my-delay
+</span></span><span style=display:flex><span>  (<span style=color:#ff6ac1>syntax-rules</span> ()
+</span></span><span style=display:flex><span>    [(my-delay e)
+</span></span><span style=display:flex><span>     (<span style=color:#ff5c57>mcons</span> <span style=color:#ff9f43>#f</span> (<span style=color:#ff6ac1>lambda</span> () e))]))<span style=color:#ff5c57>
+</span></span></span></code></pre></div><h3 class=heading id=hygiene>Hygiene
+<a href=#hygiene>#</a></h3><h2 class=heading id=recursive-datatypes-via-racketss-struct>Recursive Datatypes Via Rackets&rsquo;s <code>struct</code>
+<a href=#recursive-datatypes-via-racketss-struct>#</a></h2><p><a href="https://docs.racket-lang.org/reference/define-struct.html?q=struct#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._struct%29%29">https://docs.racket-lang.org/reference/define-struct.html?q=struct#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._struct%29%29</a></p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-racket data-lang=racket><span style=display:flex><span>(<span style=color:#ff6ac1>struct</span> foo (bar baz quux) <span style=color:#ff5c57>#:transparent</span><span style=color:#ff5c57>
+</span></span></span></code></pre></div></div><div class=single-pagination><hr><div class=flex><div class=single-pagination-prev><div class=single-pagination-container-prev><div class=single-pagination-text>←</div><div class=single-pagination-text><a href=/section2/2019-12-30-standardml-notes/>Standard ML notes</a></div></div></div><div class=single-pagination-next><div class=single-pagination-container-next><div class=single-pagination-text><a href=/section2/2020-04-29-subtyping/>Programming Language - Subtyping</a></div><div class=single-pagination-text>→</div></div></div></div><hr></div><div class=back-to-top><a href=#top>↑ Back to top</a></div></div></main></div><footer><div class=footer><p>© 2024 <a href=https://github.com/loyistro/Beige>loyistro/beige</a> theme</p></div></footer></body><script>function isAuto(){return document.body.classList.contains("auto")}function setTheme(){if(!isAuto())return;document.body.classList.remove("auto");let e="light";window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches&&(e="dark"),document.body.classList.add(e)}function invertBody(){document.body.classList.toggle("dark"),document.body.classList.toggle("light")}isAuto()&&window.matchMedia("(prefers-color-scheme: dark)").addListener(invertBody),setTheme()</script></html>

@@ -1,0 +1,344 @@
+<!doctype html><html lang=en-us dir=ltr><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=utf-8><meta name=viewport content="width=device-width"><link rel=icon type=image/ico href=http://localhost:1313/favicon//favicon.ico><link rel=icon type=image/png sizes=16x16 href=http://localhost:1313/favicon//favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=http://localhost:1313/favicon//favicon-32x32.png><link rel=icon type=image/png sizes=192x192 href=http://localhost:1313/favicon//android-chrome-192x192.png><link rel=apple-touch-icon sizes=180x180 href=http://localhost:1313/favicon//apple-touch-icon.png><meta name=description content><title>Standard ML notes | My website
+</title><link rel=canonical href=http://localhost:1313/section2/2019-12-30-standardml-notes/><meta property="og:url" content="http://localhost:1313/section2/2019-12-30-standardml-notes/"><meta property="og:site_name" content="My website"><meta property="og:title" content="Standard ML notes"><meta property="og:description" content='Basics # Comments # (* SML comment *) Variable bindings and Expressions # val x = 34; (* static environment: x : int *) (* dynamic environment: x --> 34 *) val y = x + 1; (* Use tilde character instead of minus to reprsent negation *) val z = ~1; (* Integer Division *) val w = y div x Strings:
+(* `\n`のようなエスケープシーケンスが利用できる *) val x = "hello\n"; (* 文字列の連結には&#39;^&#39;を使う *) val y = "hello " ^ "world"; An ML program is a sequence of bindings. Each binding gets type-checked and then evaluated. What type a binding has depends on a static environment. How a binding is evaluated depends on a dynamic environment. Sometimes we use just environment to mean dynamic environment and use context as a synonym for static environment.'><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="section2"><meta property="article:published_time" content="2019-12-30T09:00:00+00:00"><meta property="article:modified_time" content="2019-12-30T09:00:00+00:00"><meta property="article:tag" content="SML"><link rel=stylesheet href=/assets/combined.min.07ce338b4bb43d097400d7890f492d5be8fce1156f207c6d7cf6b096c5338732.css media=all></head><body class=auto><div class=content><header><div class=header><h1 class=header-title><a href=http://localhost:1313/ style=display:flex;align-items:center><img src=/favicon/apple-touch-icon.png alt=Icon height=40>
+<span>Home Title</span></a></h1><div class=flex><p class=small><a href=http://localhost:1313/>/home</a></p><p class=small><a href=http://localhost:1313/section1/>/Section1</a></p><p class=small><a href=http://localhost:1313/section2/>/Section2</a></p><p class=small><a href=http://localhost:1313/about>/about</a></p></div></header><main class=main><div class=breadcrumbs><a href=/>Home</a>
+<span class=breadcrumbs-separator>> </span><a href=/section2/>Section 2</a>
+<span class=breadcrumbs-separator>> </span><a class=breadcrumbs-current href=/section2/2019-12-30-standardml-notes/>Standard ML notes</a></div><div><div class=single-intro-container><h1 class=single-title>Standard ML notes</h1><p class=single-readtime><time datetime=2019-12-30T09:00:00+00:00>Dec 30, 2019</time></p></div><div class=single-content><h2 class=heading id=basics>Basics
+<a href=#basics>#</a></h2><h3 class=heading id=comments>Comments
+<a href=#comments>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>(* SML comment *)
+</span></span></code></pre></div><h3 class=heading id=variable-bindings-and-expressions>Variable bindings and Expressions
+<a href=#variable-bindings-and-expressions>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>val x = 34;
+</span></span><span style=display:flex><span>(* static environment: x : int *)
+</span></span><span style=display:flex><span>(* dynamic environment: x --&gt; 34 *)
+</span></span><span style=display:flex><span>val y = x + 1;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(* Use tilde character instead of minus to reprsent negation *)
+</span></span><span style=display:flex><span>val z = ~1;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(* Integer Division *)
+</span></span><span style=display:flex><span>val w = y div x
+</span></span></code></pre></div><p>Strings:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>(* `\n`のようなエスケープシーケンスが利用できる *)
+</span></span><span style=display:flex><span>val x = &#34;hello\n&#34;; 
+</span></span><span style=display:flex><span>(* 文字列の連結には&#39;^&#39;を使う *)
+</span></span><span style=display:flex><span>val y = &#34;hello &#34; ^ &#34;world&#34;;
+</span></span></code></pre></div><p>An ML program is a sequence of bindings. Each binding gets <strong>type-checked</strong> and then <strong>evaluated</strong>.
+What type a binding has depends on a static environment. How a binding is evaluated depends on a dynamic environment.
+Sometimes we use just <code>environment</code> to mean dynamic environment and use <code>context</code> as a synonym for static environment.</p><ul><li>Syntaxs : How to write it.</li><li>Semantics: How it type-checks and evaluates</li><li>Value: an expression that has no more computation to do</li></ul><h3 class=heading id=shadowing>Shadowing
+<a href=#shadowing>#</a></h3><p><strong>Bindings are immutable</strong> in SML. Given <code>val x = 8 + 9;</code> we produce a dynamic environment where x maps to 17.
+In this environment x will always map to 17; there is no &ldquo;assignment statement&rdquo; in ML for changing what x maps to.
+You can have another binding later, say <code>val x = 19;</code>, but that just creates a differnt environment
+where the later binding for x <strong>shadows</strong> the earlier one.</p><h3 class=heading id=function-bindings>Function Bindings
+<a href=#function-bindings>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun pow (x:int, y:int) = (* correct only for y &gt;= 0 *)
+</span></span><span style=display:flex><span>    if y = 0
+</span></span><span style=display:flex><span>    then 1
+</span></span><span style=display:flex><span>    else x * pow(x, y-1);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun cube (x : int) = 
+</span></span><span style=display:flex><span>    pow(x, 3);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>val ans = cube(4);
+</span></span><span style=display:flex><span>(* The parentheses are not necessary if there is only one argument
+</span></span><span style=display:flex><span>     val ans = cube 4; *)
+</span></span></code></pre></div><ul><li>Syntax: <code>fun x0 (x1 : t1, ..., xn : tn) = e</code></li><li>Type-checking:<ul><li><code>t1 * ... * tn -> t</code></li><li>The type of a function is &ldquo;argument types&rdquo; -> &ldquo;reslut types&rdquo;</li></ul></li><li>Evaluation:<ul><li>A function is a value</li><li>The environment we extends arguments with is that “was current” when the function was defined, not the one where it is being called.</li></ul></li></ul><h3 class=heading id=pairs-and-other-tuples>Pairs and other Tuples
+<a href=#pairs-and-other-tuples>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun swap (pr : int*bool) =
+</span></span><span style=display:flex><span>    (#2 pr, #1 pr);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun sum_two_pairs (pr1 : int * int, pr2 : int * int) =
+</span></span><span style=display:flex><span>    (#1 pr1) + (#2 pr1 ) + (#1 pr2) + (#2 pr2);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun div_mod (x : int, y: int) =
+</span></span><span style=display:flex><span>    (x div y, x mod y);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun sort_pair(pr : int * int) =
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    if (#1 pr) &lt; (#2 pr) then
+</span></span><span style=display:flex><span>	pr
+</span></span><span style=display:flex><span>    else
+</span></span><span style=display:flex><span>	(#2 pr, #1 pr);
+</span></span></code></pre></div><p>ML supportstuplesby allowing any number of parts. Pairs and tuples can be nested however you want. For example, a 3-tuple (i.e., a triple) of integers has type int<em>int</em>int. An example is (7,9,11) and you retrieve the parts with #1 e, #2 e, and #3 e where e is an expression that evaluates to a triple.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>val a = (7, 9, 11) (* int * int * int *)
+</span></span><span style=display:flex><span>val x = (3, (4, (5,6))); (* int * (int * (int * int)) *)
+</span></span><span style=display:flex><span>val y = (#2 x, (#1 x, #2 (#2 x))); (* (int * (int * int)) * (int * (int * int)) *)
+</span></span><span style=display:flex><span>val ans = (#2 y, 4); (* (int * (int * int)) * int *)
+</span></span></code></pre></div><h3 class=heading id=lists>Lists
+<a href=#lists>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>val x = [7,8,9];
+</span></span><span style=display:flex><span>5::x; (* 5 consed onto x *)
+</span></span><span style=display:flex><span>6::5::x;
+</span></span><span style=display:flex><span>[6]::[[1,2],[3,4];
+</span></span></code></pre></div><p>To append a list t a list, use list-append operator <code>@</code>:
+<a href=%5Bhttp://sml-family.org/Basis/list.html%5D(http://sml-family.org/Basis/list.html)>Reference：# The Standard ML Basis Library</a></p><blockquote><p>Interface:
+<strong>val</strong> <a href=http://sml-family.org/Basis/list.html#SIG:LIST.@:VAL>@</a> <strong>:</strong> <em>&lsquo;a</em> list * <em>&lsquo;a</em> list <strong>-></strong> <em>&lsquo;a</em> list</p></blockquote><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>val x = [1,2] @ [3,4,5]; (* [1,2,3,4,5] *)
+</span></span></code></pre></div><p>Accessing:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>val x = [7,8,9];
+</span></span><span style=display:flex><span>null x; (* False *)
+</span></span><span style=display:flex><span>null []; (* True *)
+</span></span><span style=display:flex><span>hd x; (* 7 *)
+</span></span><span style=display:flex><span>tl x; (* [8, 9] *)
+</span></span></code></pre></div><h3 class=heading id=list-functions>List Functions
+<a href=#list-functions>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun sum_list(xs : int list) =
+</span></span><span style=display:flex><span>    if null xs
+</span></span><span style=display:flex><span>    then 0
+</span></span><span style=display:flex><span>    else hd xs + sum_list(tl xs);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun list_product(xs : int list) =
+</span></span><span style=display:flex><span>    if null xs
+</span></span><span style=display:flex><span>    then 1
+</span></span><span style=display:flex><span>    else hd xs * list_product(tl xs);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun countdown(x : int) =
+</span></span><span style=display:flex><span>    if x = 0
+</span></span><span style=display:flex><span>    then []
+</span></span><span style=display:flex><span>    else x :: countdown(x - 1);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun append (xs : int lisst, ys : int list) =
+</span></span><span style=display:flex><span>    if null xs
+</span></span><span style=display:flex><span>    then ys
+</span></span><span style=display:flex><span>    else (hd xs) :: append((tl xs), ys);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun sum_pair_list(xs : (int * int) list) =
+</span></span><span style=display:flex><span>    if null xs
+</span></span><span style=display:flex><span>    then 0
+</span></span><span style=display:flex><span>    else #1 (hd xs) + #2 (hd xs) + sum_pair_list(tl xs);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun firsts (xs : (int * int) list) =
+</span></span><span style=display:flex><span>    if null xs
+</span></span><span style=display:flex><span>    then []
+</span></span><span style=display:flex><span>    else (#1 (hd xs)) :: firsts(tl xs);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun seconds (xs : (int * int) list) =
+</span></span><span style=display:flex><span>    if null xs
+</span></span><span style=display:flex><span>    then []
+</span></span><span style=display:flex><span>    else (#2 (hd xs)) :: seconds(tl xs);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun sum_pair_list2 (xs : (int * int) list) =
+</span></span><span style=display:flex><span>    (sum_list(firsts xs)) + (sum_list(seconds xs));
+</span></span></code></pre></div><p>Functions that make and us lists are almost always recursice becasue a list has an unknown length. To write a recursive function the thought process involves two steps:</p><ul><li>think about the <em>base case</em></li><li>think about the <em>recursive case</em></li></ul><h3 class=heading id=let-expressions>Let Expressions
+<a href=#let-expressions>#</a></h3><ul><li>Syntax: <code>let b1 b2 ... bn in e end</code><ul><li>Each <code>bi</code> is any binding an <code>e</code> is any expression</li></ul></li></ul><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>let val x = 1
+</span></span><span style=display:flex><span>in
+</span></span><span style=display:flex><span>    (let val x = 2 in x+1 end) + (let val y = x+2 in y+1 end)
+</span></span><span style=display:flex><span>end
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun countup_from1 (x:int) =
+</span></span><span style=display:flex><span>    let fun count (from:int) =
+</span></span><span style=display:flex><span>        if from=x
+</span></span><span style=display:flex><span>        then x::[]
+</span></span><span style=display:flex><span>        else from :: count(from+1)
+</span></span><span style=display:flex><span>    in
+</span></span><span style=display:flex><span>        count(1)
+</span></span><span style=display:flex><span>    end
+</span></span></code></pre></div><h3 class=heading id=options>Options
+<a href=#options>#</a></h3><p>An option value has either 0 or 1 thing: <code>None</code> is an option value carrying nothing whereas <code>SOME e</code> evaluates e to a value v and becomes the option carrying the one value v. The type of <code>NONE</code> is <code>'a option</code> and the type of <code>SOME e</code> is <code>t option</code> if e has type t.</p><p>We have:</p><ul><li><code>isSome</code> which evaluates to false if its argument is NONE</li><li><code>valOf</code> to get the value carried by <code>SOME</code>(raising exception for <code>NONE</code>)</li></ul><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun max1( xs : int list) =
+</span></span><span style=display:flex><span>    if null xs
+</span></span><span style=display:flex><span>    then NONE
+</span></span><span style=display:flex><span>    else
+</span></span><span style=display:flex><span>	let val tl_ans = max1(tl xs)
+</span></span><span style=display:flex><span>	in
+</span></span><span style=display:flex><span>	    if isSome tl_ans andalso valOf tl_ans &gt; hd xs
+</span></span><span style=display:flex><span>	    then tl_ans
+</span></span><span style=display:flex><span>	    else SOME (hd xs)
+</span></span><span style=display:flex><span>	end;
+</span></span></code></pre></div><h2 class=heading id=some-more-expressions>Some More Expressions
+<a href=#some-more-expressions>#</a></h2><p>Boolean operations:</p><ul><li><code>e1 andalso e2</code><ul><li>if result of e1 is false then false else result of e2</li></ul></li><li><code>e1 orelse e2</code></li><li><code>not e1</code></li></ul><p><strong>※Syntax <code>&&</code> and <code>||</code> don&rsquo;t exist in ML and <code>!</code> means something different.</strong></p><p><strong>※<code>andalso</code> and <code>orelse</code> are just keywords. <code>not</code> is a pre-defined function.</strong></p><p>Comparisons:</p><ul><li><code>=</code> <code>&lt;></code> <code>></code> <code>&lt;</code> <code>>=</code> <code>&lt;=</code><ul><li><code>=</code> and <code>&lt;></code> can be used with any &ldquo;equality type&rdquo; but not with real</li></ul></li></ul><h2 class=heading id=build-new-types>Build New Types
+<a href=#build-new-types>#</a></h2><p>To Create a compound type, there are really only three essential building blocks:</p><ul><li><strong>Each-of</strong> : A compound type t describes values that contain each of values of type <code>t1</code> <code>t2</code> &mldr; <code>tn</code></li><li><strong>One-of</strong>: A compound type t describes values that contain a value of one of the types <code>t1</code> <code>t2</code> &mldr; <code>tn</code></li><li><strong>Self-refenence</strong>: A compound type t may refer to itself in its definition in order to describe recursive data structures like lists and trees.</li></ul><h3 class=heading id=records>Records
+<a href=#records>#</a></h3><p>Record types are &ldquo;each-of&rdquo; types where each component is a named field. The order of fields never matters.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>val x = {bar = (1+2,true andalso true), foo = 3+4, baz = (false,9) }
+</span></span><span style=display:flex><span>#bar x (* (3, true) *)
+</span></span></code></pre></div><p>Tupels are actually syntactic sugar for records. <code>#1 e</code>, <code>#2 e</code>, etc. mean: get the contents of the field named 1, 2, etc.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>- val x = {1=&#34;a&#34;,2=&#34;b&#34;};
+</span></span><span style=display:flex><span>val x = (&#34;a&#34;,&#34;b&#34;) : string * string
+</span></span><span style=display:flex><span>- val y = {1=&#34;a&#34;, 3=&#34;b&#34;};
+</span></span><span style=display:flex><span>val y = {1=&#34;a&#34;,3=&#34;b&#34;} : {1:string, 3:string}
+</span></span></code></pre></div><h3 class=heading id=datatype-bindings>Datatype bindings
+<a href=#datatype-bindings>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>datatype mytype = TwoInts of int*int
+</span></span><span style=display:flex><span>		                       | Str of string
+</span></span><span style=display:flex><span>                               | Pizza;
+</span></span><span style=display:flex><span>val a = Str &#34;hi&#34;; (* Str &#34;hi&#34; : mytype *)
+</span></span><span style=display:flex><span>val b = Str; (* fn : string -&gt; mytype *)
+</span></span><span style=display:flex><span>val c = Pizza; (* Pizza : mytype *)
+</span></span><span style=display:flex><span>val d = TwoInts(1+2, 3+4); (* TwoInts (3,7) : mytype *)
+</span></span><span style=display:flex><span>val e = a; (* Str &#34;hi&#34; : mytype *)
+</span></span></code></pre></div><p>The example above adds four things to the environment:</p><ul><li>A new type mytype that we can now use just like any other types</li><li>Three constructors <code>TwoInts</code>, <code>Str</code>, <code>Pizza</code></li></ul><p>We can also create a type synonmy which is entirely interchangeable with the existing type.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>type foo = int
+</span></span><span style=display:flex><span>(* we can write foo wherever we write int and vice-versa *)
+</span></span></code></pre></div><h2 class=heading id=case-expressions>Case Expressions
+<a href=#case-expressions>#</a></h2><p>To access to datatype values, we can use a case expression:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun f (x : mytype) =
+</span></span><span style=display:flex><span>    case x of
+</span></span><span style=display:flex><span>	    Pizza =&gt; 3
+</span></span><span style=display:flex><span>      | Str s =&gt; 8
+</span></span><span style=display:flex><span>      | TwoInts(i1, i2) =&gt; i1 + i2;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>f(Str(&#34;a&#34;)); (* val it = 8 : int *)
+</span></span></code></pre></div><p>We separate the branches with the <code>|</code> character. Each branch has the form <code>p => e</code> where p is a pattern and e is an expression. Patterns are used to match against the result of evaluating the case&rsquo;s first expression. This is why evaluating a case-expression is called pattern-matching.</p><h2 class=heading id=lists-and-options-are-datatypes-too>Lists and Options are Datatypes too
+<a href=#lists-and-options-are-datatypes-too>#</a></h2><p><code>SOME</code> and <code>NONE</code> are actually constructors. So you can use them in a case like:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun inc_or_zero intoption =
+</span></span><span style=display:flex><span>    case intoption of
+</span></span><span style=display:flex><span>	    NONE =&gt; 0
+</span></span><span style=display:flex><span>      | SOME i =&gt; i+1;
+</span></span></code></pre></div><p>As for list, <code>[]</code> and <code>::</code> are also constructors. <code>::</code> is a little unusual because it is an infix operator so when in patterns:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun sum_list xs =
+</span></span><span style=display:flex><span>    case xs of
+</span></span><span style=display:flex><span>	    [] =&gt; 0
+</span></span><span style=display:flex><span>      | x::xs&#39; =&gt; x + sum_list xs&#39;;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun append(xs, ys) =
+</span></span><span style=display:flex><span>    case xs of
+</span></span><span style=display:flex><span>	    [] =&gt; ys
+</span></span><span style=display:flex><span>      | x::xs&#39; =&gt; x :: append(xs&#39;, ys);
+</span></span></code></pre></div><h2 class=heading id=pattern-matching>Pattern-matching
+<a href=#pattern-matching>#</a></h2><p>Val-bindings are actually using pattern-matching.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>val (x, y, z) = (1,2,3);
+</span></span><span style=display:flex><span>(*
+</span></span><span style=display:flex><span>    val x = 1 : int
+</span></span><span style=display:flex><span>    val y = 2 : int
+</span></span><span style=display:flex><span>    val z = 3 : int
+</span></span><span style=display:flex><span>*)
+</span></span></code></pre></div><p>When defining a function, we can also use pattern-matching</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun sum_triple (x, y, z) =
+</span></span><span style=display:flex><span>    x + y + z;
+</span></span></code></pre></div><p>Actually, all functions in ML takes one tripple as an argument. There is no such thing as a mutli-argument function or zero-argument function in ML.
+The binding <code>fun () = e</code> is using the unit-pattern <code>()</code> to match against calls that pass the unit value <code>()</code>, which is the only value fo a pre-defined datatype <code>unit</code>.</p><p>The definition of patterns is recursive. We can use nested patterns instead of nested cae expressions.</p><p>We can use wildcard pattern <code>_</code> in patterns.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun len xs =
+</span></span><span style=display:flex><span>    case xs of
+</span></span><span style=display:flex><span>	[] =&gt; 0
+</span></span><span style=display:flex><span>      | _::xs&#39; =&gt; 1 + len xs&#39;;
+</span></span></code></pre></div><h3 class=heading id=function-patterns>Function Patterns
+<a href=#function-patterns>#</a></h3><p>In a function binding, we can use a syntactic sugar instead of using case expressions:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun f p1 = e1
+</span></span><span style=display:flex><span>  | f p2 = e2
+</span></span><span style=display:flex><span>  ...
+</span></span><span style=display:flex><span>  | f pn = en
+</span></span></code></pre></div><p>for example</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun append ([], ys) = ys
+</span></span><span style=display:flex><span>  | append (x::xs&#39;, ys) = x :: append(xs&#39;, ys);
+</span></span></code></pre></div><h2 class=heading id=exceptions>Exceptions
+<a href=#exceptions>#</a></h2><p>To create new kinds of exceptions we can use exception bindings.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>exception MyUndesirableCondition;
+</span></span><span style=display:flex><span>exception MyOtherException of int * int;
+</span></span></code></pre></div><p>Use <code>raise</code> to raise exceptions. Use <code>handle</code> to catch exceptions.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun hd xs =
+</span></span><span style=display:flex><span>    case xs of
+</span></span><span style=display:flex><span>	[] =&gt; raise List.Empty
+</span></span><span style=display:flex><span>      | x::_ =&gt; x;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(* The type of maxlist will be int list * exn -&gt; int *)
+</span></span><span style=display:flex><span>fun maxlist(xs, ex) =
+</span></span><span style=display:flex><span>    case xs of
+</span></span><span style=display:flex><span>	[] =&gt; raise ex
+</span></span><span style=display:flex><span>      | x::[] =&gt; x
+</span></span><span style=display:flex><span>      | x::xs&#39; =&gt; Int.max(x, maxlist(xs&#39;, ex));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(* e1 handle ex =&gt; e2 *)
+</span></span><span style=display:flex><span>val y = maxlist([], MyUndesirableCondition)
+</span></span><span style=display:flex><span>	handle MyUndesirableCondition =&gt; 42;
+</span></span></code></pre></div><h2 class=heading id=tail-recursion>Tail Recursion
+<a href=#tail-recursion>#</a></h2><p>There is a situation in a recursive call called <strong>tail call</strong>:</p><blockquote><p>when f makes a recursive call to f, there is nothing more for the caller to do after the callee returns except return the callee&rsquo;s result.</p></blockquote><p>Consider a sum function:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun sum1 xs =
+</span></span><span style=display:flex><span>    case xs of
+</span></span><span style=display:flex><span>        [] =&gt; 0
+</span></span><span style=display:flex><span>      | i::xs&#39; =&gt; i + sum1 xs&#39;
+</span></span></code></pre></div><p>When the function runs, it will keep a call-stack for each recursive call . But if we change a little bit using tail call :</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun sum2 xs =
+</span></span><span style=display:flex><span>    let fun f (xs,acc) =
+</span></span><span style=display:flex><span>        case xs of
+</span></span><span style=display:flex><span>            [] =&gt; acc
+</span></span><span style=display:flex><span>          | i::xs&#39; =&gt; f(xs&#39;,i+acc)
+</span></span><span style=display:flex><span>    in
+</span></span><span style=display:flex><span>        f(xs,0)
+</span></span><span style=display:flex><span>    end
+</span></span></code></pre></div><p>we use a local helper <code>f</code> and a accumulator <code>acc</code> so that the return value of <code>f</code> is just the return value of <code>sum2</code> . As a result, there is no need to keep every call in stack, just the current <code>f</code> is enough. And that&rsquo;s ML and most of other functional programming languages do.
+Another example: when reversing a list:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun rev1 lst =
+</span></span><span style=display:flex><span>    case lst of
+</span></span><span style=display:flex><span>        [] =&gt; []
+</span></span><span style=display:flex><span>      | x::xs =&gt; (rev1 xs) @ [x]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun rev2 lst =
+</span></span><span style=display:flex><span>    let fun aux(lst,acc) =
+</span></span><span style=display:flex><span>	    case lst of
+</span></span><span style=display:flex><span>		[] =&gt; acc
+</span></span><span style=display:flex><span>	      | x::xs =&gt; aux(xs, x::acc)
+</span></span><span style=display:flex><span>    in
+</span></span><span style=display:flex><span>	aux(lst,[])
+</span></span><span style=display:flex><span>    end
+</span></span></code></pre></div><p><code>rev1</code> is <code>O(n^2)</code> but rev2 is almost as simple as <code>O(n)</code>.</p><p>To make sure which calls are tail calls, we can use a recursive defination of <strong>tail position</strong> like:</p><ul><li>In <code>fun f(x) = e</code>, <code>e</code> is in tail position.</li><li>If an expression is not in tail position, then none of its subexpressions are</li><li>If <code>if e1 then e2 else e3</code> is in tail position, then <code>e2</code> and <code>e3</code> are in tail position (but not <code>e1</code>). (Case-expressions are similar.)</li><li>If <code>let b1 ... bn in e end</code> is in tail position, then e is in tail position (but no expressions in the bindings are).</li><li>Function-call arguments are not in tail position.</li></ul><h2 class=heading id=first-class-functions>First-class Functions
+<a href=#first-class-functions>#</a></h2><p>The most common use of first class functions is passing them as arguments to other functions.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun n_times (f, n, x) =
+</span></span><span style=display:flex><span>    if n=0
+</span></span><span style=display:flex><span>    then x
+</span></span><span style=display:flex><span>    else f (n_times(f, n-1,x))
+</span></span></code></pre></div><p>The function <code>n_times</code> is called higher-order funciton. Its type is:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn : (&#39;a -&gt; &#39;a) * int * &#39;a -&gt; &#39;a
+</span></span></code></pre></div><p><code>'a</code> means they can be any type. This is called <em>parametric polymorphism</em> , or <em>generic types</em> .</p><p>Instead, consider a function that is not polymorphic:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>(* (int -&gt; int) * int -&gt; int *)
+</span></span><span style=display:flex><span>fun times_until_zero (f, x) =
+</span></span><span style=display:flex><span>    if x = 0
+</span></span><span style=display:flex><span>    then 0
+</span></span><span style=display:flex><span>    else 1 + times_until_zero(f, f x)
+</span></span></code></pre></div><h3 class=heading id=anonymous-functions>Anonymous Functions
+<a href=#anonymous-functions>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun triple_n_times (n, x) =
+</span></span><span style=display:flex><span>    n_times((fn x =&gt; 3*x), n, x)
+</span></span></code></pre></div><p>Maps:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>(* (&#39;a -&gt; &#39;b) * &#39;a list -&gt; &#39;b list *)
+</span></span><span style=display:flex><span>fun map (f, xs) =
+</span></span><span style=display:flex><span>    case xs of
+</span></span><span style=display:flex><span>	[] =&gt; []
+</span></span><span style=display:flex><span>      | x::xs&#39; =&gt; (f x)::(map(f, xs&#39;));
+</span></span></code></pre></div><p>Filters:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>(* (&#39;a -&gt; bool) * &#39;a list -&gt; &#39;a list *)
+</span></span><span style=display:flex><span>fun filter (f, xs) =
+</span></span><span style=display:flex><span>    case xs of
+</span></span><span style=display:flex><span>	[] =&gt; []
+</span></span><span style=display:flex><span>      | x::xs&#39; =&gt; if f x
+</span></span><span style=display:flex><span>		  then x::(filter (f, xs&#39;))
+</span></span><span style=display:flex><span>		  else filter (f, xs&#39;);
+</span></span></code></pre></div><h3 class=heading id=lexical-scope-vs-dynamic-scope>Lexical scope VS dynamic scope
+<a href=#lexical-scope-vs-dynamic-scope>#</a></h3><h3 class=heading id=combining-functions>Combining Functions
+<a href=#combining-functions>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span> fun sqrt_of_abs i = (Math.sqrt o Real.fromInt o abs) i;
+</span></span></code></pre></div><p>Use our own infix operator to define a left-to-right syntax.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>infix |&gt;
+</span></span><span style=display:flex><span>fun x |&gt; f = f x;
+</span></span><span style=display:flex><span>fun sqrt_of_abs i = i |&gt; abs |&gt; Real.fromInt |&gt; Math.sqrt;
+</span></span></code></pre></div><h3 class=heading id=currying>Currying
+<a href=#currying>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>(* fun sorted(x, y z) = z &gt;= y andalso y &gt;= x *)
+</span></span><span style=display:flex><span>val sorted = fn x =&gt; fn y =&gt; fn z =&gt; z &gt;= y andalso y &gt;= x;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(* just syntactic sugar for code above *)
+</span></span><span style=display:flex><span>fun sorted_nicer x y z = z &gt;= y andalso y &gt;= x;
+</span></span></code></pre></div><p>when calling curried the function:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>(* ((sorted_nicer x) y) z *)
+</span></span><span style=display:flex><span>(* or just: *)
+</span></span><span style=display:flex><span>sorted_nicer x y z
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback></code></pre></div><h2 class=heading id=type-inference>Type Inference
+<a href=#type-inference>#</a></h2><p>Key steps in ML:</p><ul><li>Determine types of bindings in order</li><li>For each val of fun binding:<ul><li>Analyze definition for all necessary facts</li><li>Type erro if no way for all facts to hold</li></ul></li><li>Use type variables like <code>'a</code> for any unconstrained type</li><li>Enforce the value restriction</li></ul><p>One example:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>(*
+</span></span><span style=display:flex><span>	compose : T1 * T2 -&gt; T3
+</span></span><span style=display:flex><span>	f : T1
+</span></span><span style=display:flex><span>	g : T2
+</span></span><span style=display:flex><span>	x : T4
+</span></span><span style=display:flex><span>	body being a function has type T3=T4-&gt;T5
+</span></span><span style=display:flex><span>	from g being passed x, T2=T4-&gt;T6 for some T6
+</span></span><span style=display:flex><span>	from f being passed the result of g, T1=T6-&gt;T7
+</span></span><span style=display:flex><span>	from call to f being body of anonymous function, T7 = T5
+</span></span><span style=display:flex><span>	all together, (T6-&gt;T5) * (T4-&gt;T6) -&gt; (T4-&gt;T5)
+</span></span><span style=display:flex><span>	so (&#39;a-&gt;&#39;b) * (&#39;c-&gt;&#39;a) -&gt; (&#39;c-&gt;&#39;b) 
+</span></span><span style=display:flex><span>*)
+</span></span><span style=display:flex><span>fun compose (f, g) = fn x =&gt; f (g x)
+</span></span></code></pre></div><h3 class=heading id=value-restriction>Value restriction
+<a href=#value-restriction>#</a></h3><p>A variable-binding can have a polymorphic type only if the expression is a variable or value:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>val r = ref NONE
+</span></span><span style=display:flex><span>val _ = r := SOME &#34;hi&#34;
+</span></span><span style=display:flex><span>val i - 1 + valOf (!r)
+</span></span></code></pre></div><p>If there is is no value-restriction, the code above will type check, which shouldn&rsquo;t.
+With value restriction, ML will give a warning when type-checking:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-gdscript3 data-lang=gdscript3><span style=display:flex><span><span style=color:#ff6ac1>-</span> val r <span style=color:#ff6ac1>=</span> ref NONE;
+</span></span><span style=display:flex><span>stdIn:<span style=color:#ff9f43>2.5</span><span style=color:#ff6ac1>-</span><span style=color:#ff9f43>2.17</span> Warning: type vars <span style=color:#ff6ac1>not</span> generalized because of
+</span></span><span style=display:flex><span>   value restriction are instantiated to dummy types (X1,X2,<span style=color:#ff6ac1>...</span>)
+</span></span><span style=display:flex><span>val r <span style=color:#ff6ac1>=</span> ref NONE : <span style=color:#ff5c57>?</span><span style=color:#ff6ac1>.</span>X1 option ref
+</span></span></code></pre></div><h2 class=heading id=mutual-recursion>Mutual Recursion
+<a href=#mutual-recursion>#</a></h2><p>Mutual recursion allows <code>f</code> to call <code>g</code> and <code>g</code> to call <code>f</code>.
+In ML, There is an <code>and</code> keyword to allow that:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fun p1 = e1
+</span></span><span style=display:flex><span>and p2 = e2
+</span></span><span style=display:flex><span>and p3 = p3
+</span></span></code></pre></div><h2 class=heading id=modules>Modules
+<a href=#modules>#</a></h2><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>structure MyMathLib =
+</span></span><span style=display:flex><span>struct
+</span></span><span style=display:flex><span>fun fact x = x
+</span></span><span style=display:flex><span>val half_pi = Math.pi / 2.0
+</span></span><span style=display:flex><span>fun doubler x = x * 2
+</span></span><span style=display:flex><span>end
+</span></span></code></pre></div><h3 class=heading id=signatures>Signatures
+<a href=#signatures>#</a></h3><p>A signature is a type for a module.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>signature SIGNAME  =
+</span></span><span style=display:flex><span>sig types-for-bindings
+</span></span><span style=display:flex><span>end
+</span></span></code></pre></div><p>Ascribing a signature to a module:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>structure myModule :&gt; SIGNAME =
+</span></span><span style=display:flex><span>struct bindings end;
+</span></span></code></pre></div><p>Anything not in the signature cannot be used outside the module.</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>signature MATHLIB =
+</span></span><span style=display:flex><span>sig
+</span></span><span style=display:flex><span>    val fact : int -&gt; int
+</span></span><span style=display:flex><span>    val half_pi : real
+</span></span><span style=display:flex><span>    (* make doubler unaccessable outside the MyMathLib *)
+</span></span><span style=display:flex><span>    (* val doubler : int -&gt; int *)
+</span></span><span style=display:flex><span>end
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>structure MyMathLib :&gt; MATHLIB =
+</span></span><span style=display:flex><span>struct
+</span></span><span style=display:flex><span>fun fact x = x
+</span></span><span style=display:flex><span>val half_pi = Math.pi / 2.0
+</span></span><span style=display:flex><span>fun doubler x = x * 2
+</span></span><span style=display:flex><span>end 
+</span></span></code></pre></div><h3 class=heading id=signature-matching>Signature matching
+<a href=#signature-matching>#</a></h3><h2 class=heading id=equivalence>Equivalence
+<a href=#equivalence>#</a></h2><ul><li>PL Equivalence</li><li>Asymptotic equivalence</li><li>System equivalence</li></ul></div><div class=single-pagination><hr><div class=flex><div class=single-pagination-prev><div class=single-pagination-container-prev><div class=single-pagination-text>←</div><div class=single-pagination-text><a href=/section2/2019-11-23-uipath-orchestrator/>uipath ノート（三）- uipath orchestrator</a></div></div></div><div class=single-pagination-next><div class=single-pagination-container-next><div class=single-pagination-text><a href=/section2/2020-02-29-racket/>Racket notes</a></div><div class=single-pagination-text>→</div></div></div></div><hr></div><div class=back-to-top><a href=#top>↑ Back to top</a></div></div></main></div><footer><div class=footer><p>© 2024 <a href=https://github.com/loyistro/Beige>loyistro/beige</a> theme</p></div></footer></body><script>function isAuto(){return document.body.classList.contains("auto")}function setTheme(){if(!isAuto())return;document.body.classList.remove("auto");let e="light";window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches&&(e="dark"),document.body.classList.add(e)}function invertBody(){document.body.classList.toggle("dark"),document.body.classList.toggle("light")}isAuto()&&window.matchMedia("(prefers-color-scheme: dark)").addListener(invertBody),setTheme()</script></html>

@@ -1,0 +1,142 @@
+<!doctype html><html lang=en-us dir=ltr><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=utf-8><meta name=viewport content="width=device-width"><link rel=icon type=image/ico href=http://localhost:1313/favicon//favicon.ico><link rel=icon type=image/png sizes=16x16 href=http://localhost:1313/favicon//favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=http://localhost:1313/favicon//favicon-32x32.png><link rel=icon type=image/png sizes=192x192 href=http://localhost:1313/favicon//android-chrome-192x192.png><link rel=apple-touch-icon sizes=180x180 href=http://localhost:1313/favicon//apple-touch-icon.png><link rel=alternate type=application/rss+xml href=http://localhost:1313/section2/index.xml title="My website"><meta name=description content><title>Section 2 | My website
+</title><link rel=canonical href=http://localhost:1313/section2/><meta property="og:url" content="http://localhost:1313/section2/"><meta property="og:site_name" content="My website"><meta property="og:title" content="Section 2"><meta property="og:description" content="Here is my website"><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><link rel=stylesheet href=/assets/combined.min.07ce338b4bb43d097400d7890f492d5be8fce1156f207c6d7cf6b096c5338732.css media=all></head><body class=auto><div class=content><header><div class=header><h1 class=header-title><a href=http://localhost:1313/ style=display:flex;align-items:center><img src=/favicon/apple-touch-icon.png alt=Icon height=40>
+<span>Home Title</span></a></h1><div class=flex><p class=small><a href=http://localhost:1313/>/home</a></p><p class=small><a href=http://localhost:1313/section1/>/Section1</a></p><p class="small
+bold"><a href=http://localhost:1313/section2/>/Section2</a></p><p class=small><a href=http://localhost:1313/about>/about</a></p></div></header><main class=main><div class=list-container><div class=breadcrumbs><a href=/>Home</a>
+<span class=breadcrumbs-separator>> </span><a class=breadcrumbs-current href=/section2/>Section 2</a></div><h2>Section 2</h2><span style=display:block;color:var(--content-secondary);margin-bottom:2em></span><div class=post-line><p class=line-date>Dec 30, 2019</p><div><p class=line-title><a href=/section2/2019-12-30-standardml-notes/>Standard ML notes</a></p><p class=line-summary><h2 class=heading id=basics>Basics
+<a href=#basics>#</a></h2><h3 class=heading id=comments>Comments
+<a href=#comments>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>(* SML comment *)
+</span></span></code></pre></div><h3 class=heading id=variable-bindings-and-expressions>Variable bindings and Expressions
+<a href=#variable-bindings-and-expressions>#</a></h3><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>val x = 34;
+</span></span><span style=display:flex><span>(* static environment: x : int *)
+</span></span><span style=display:flex><span>(* dynamic environment: x --&gt; 34 *)
+</span></span><span style=display:flex><span>val y = x + 1;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(* Use tilde character instead of minus to reprsent negation *)
+</span></span><span style=display:flex><span>val z = ~1;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>(* Integer Division *)
+</span></span><span style=display:flex><span>val w = y div x
+</span></span></code></pre></div><p>Strings:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>(* `\n`のようなエスケープシーケンスが利用できる *)
+</span></span><span style=display:flex><span>val x = &#34;hello\n&#34;; 
+</span></span><span style=display:flex><span>(* 文字列の連結には&#39;^&#39;を使う *)
+</span></span><span style=display:flex><span>val y = &#34;hello &#34; ^ &#34;world&#34;;
+</span></span></code></pre></div><p>An ML program is a sequence of bindings. Each binding gets <strong>type-checked</strong> and then <strong>evaluated</strong>.
+What type a binding has depends on a static environment. How a binding is evaluated depends on a dynamic environment.
+Sometimes we use just <code>environment</code> to mean dynamic environment and use <code>context</code> as a synonym for static environment.</p></p></div></div><div class=post-line><p class=line-date>Nov 23, 2019</p><div><p class=line-title><a href=/section2/2019-11-23-uipath-orchestrator/>uipath ノート（三）- uipath orchestrator</a></p><p class=line-summary><h2 class=heading id=利用手順>利用手順
+<a href=#%e5%88%a9%e7%94%a8%e6%89%8b%e9%a0%86>#</a></h2><p>Official doc: <a href=https://docs.uipath.com/robot/docs/from-orchestrator-and-the-orchestrator-settings-window>https://docs.uipath.com/robot/docs/from-orchestrator-and-the-orchestrator-settings-window</a></p><h3 class=heading id=マシンを追加>マシンを追加
+<a href=#%e3%83%9e%e3%82%b7%e3%83%b3%e3%82%92%e8%bf%bd%e5%8a%a0>#</a></h3><p>マシン側でマシン名とユーザ名を確認</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>C:\Users\user&gt;hostname
+</span></span><span style=display:flex><span>DESKTOP-ABCDE5F
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>C:\Users\user&gt;whoami
+</span></span><span style=display:flex><span>desktop-abcde5f\user
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>C:\Users\user&gt;
+</span></span></code></pre></div><p>追加完了後、マシンキーを取得する。</p><h3 class=heading id=ロボットを登録>ロボットを登録
+<a href=#%e3%83%ad%e3%83%9c%e3%83%83%e3%83%88%e3%82%92%e7%99%bb%e9%8c%b2>#</a></h3><ul><li>Type: studio (開発用？)</li><li>Domain/Username: 上記のユーザ名</li></ul><h3 class=heading id=ローカルのorchestrator設定>ローカルのorchestrator設定
+<a href=#%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%81%aeorchestrator%e8%a8%ad%e5%ae%9a>#</a></h3><p>Uipath Robotを開き⇒orchestratorの設定で、上記のマシンキーを入力する。
+orchestrator URLに <code>https://platform.uipath.com/</code> を入力する.
+<code>Invalid machine key</code>というエラーが出たら、下記のようなURLを試す：</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>https://platform.uipath.com/&lt;account name&gt;/&lt;service name&gt;
+</span></span></code></pre></div><p>参照：<a href=https://forum.uipath.com/t/uipath-orchestrator-error-invalid-machine-key/153438/16>Uipath orchestrator error : invalid machine key</a></p><h3 class=heading id=ロボットグループenvironment作成>ロボットグループ(Environment)作成
+<a href=#%e3%83%ad%e3%83%9c%e3%83%83%e3%83%88%e3%82%b0%e3%83%ab%e3%83%bc%e3%83%97environment%e4%bd%9c%e6%88%90>#</a></h3><h3 class=heading id=プロジェクトをパブリッシュpublish>プロジェクトをパブリッシュ(Publish)
+<a href=#%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%82%92%e3%83%91%e3%83%96%e3%83%aa%e3%83%83%e3%82%b7%e3%83%a5publish>#</a></h3><h3 class=heading id=プロセスを追加>プロセスを追加
+<a href=#%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%92%e8%bf%bd%e5%8a%a0>#</a></h3><p>Automations　⇒　Processes</p><h3 class=heading id=ジョブjobsの実行>ジョブ(Jobs)の実行
+<a href=#%e3%82%b8%e3%83%a7%e3%83%96jobs%e3%81%ae%e5%ae%9f%e8%a1%8c>#</a></h3><p>Monitoring　⇒　Jobs</p><h2 class=heading id=その他>その他
+<a href=#%e3%81%9d%e3%81%ae%e4%bb%96>#</a></h2><h3 class=heading id=再パブリッシュするとprocessが最新バージョンを使うため変更作業が必要>再パブリッシュすると、Processが最新バージョンを使うため、変更作業が必要
+<a href=#%e5%86%8d%e3%83%91%e3%83%96%e3%83%aa%e3%83%83%e3%82%b7%e3%83%a5%e3%81%99%e3%82%8b%e3%81%a8process%e3%81%8c%e6%9c%80%e6%96%b0%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%92%e4%bd%bf%e3%81%86%e3%81%9f%e3%82%81%e5%a4%89%e6%9b%b4%e4%bd%9c%e6%a5%ad%e3%81%8c%e5%bf%85%e8%a6%81>#</a></h3><p>Processes　⇒　More Options　⇒　View Process　⇒　最新のバージョンに切り替える</p></p></div></div><div class=post-line><p class=line-date>Nov 18, 2019</p><div><p class=line-title><a href=/section2/2019-11-18-uipath-best-practice/>uipath ノート（二）- Best Practice</a></p><p class=line-summary><h2 class=heading id=時間をかけて各ワークフローに適したレイアウトを選択しましょう>時間をかけて各ワークフローに適したレイアウトを選択しましょう。
+<a href=#%e6%99%82%e9%96%93%e3%82%92%e3%81%8b%e3%81%91%e3%81%a6%e5%90%84%e3%83%af%e3%83%bc%e3%82%af%e3%83%95%e3%83%ad%e3%83%bc%e3%81%ab%e9%81%a9%e3%81%97%e3%81%9f%e3%83%ac%e3%82%a4%e3%82%a2%e3%82%a6%e3%83%88%e3%82%92%e9%81%b8%e6%8a%9e%e3%81%97%e3%81%be%e3%81%97%e3%82%87%e3%81%86>#</a></h2><ul><li><p>メイン: フローチャートまたはステートマシン</p></li><li><p>ビジネスロジック: フローチャート</p></li><li><p>UI インタラクション: シーケンス</p></li><li><p>フローチャートを使用することで、入れ子状の IF を回避</p></li></ul><h2 class=heading id=プロセスを小さなワークフローに分割しましょう>プロセスを小さなワークフローに分割しましょう。
+<a href=#%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%92%e5%b0%8f%e3%81%95%e3%81%aa%e3%83%af%e3%83%bc%e3%82%af%e3%83%95%e3%83%ad%e3%83%bc%e3%81%ab%e5%88%86%e5%89%b2%e3%81%97%e3%81%be%e3%81%97%e3%82%87%e3%81%86>#</a></h2><ul><li><p>分割したものを個別に開発、テスト</p></li><li><p>ワークフローの再利用</p></li><li><p>分割ファイルで作業することによる、より効率的な共同作業</p></li></ul><h2 class=heading id=必ず例外を処理しましょう>必ず例外を処理しましょう。
+<a href=#%e5%bf%85%e3%81%9a%e4%be%8b%e5%a4%96%e3%82%92%e5%87%a6%e7%90%86%e3%81%97%e3%81%be%e3%81%97%e3%82%87%e3%81%86>#</a></h2><ul><li><p>例外が発生しやすいワークフローを [Try Catch (トライキャッチ)] ブロックに配置</p></li><li><p>外部から呼び出されたワークフローでも同様</p></li><li><p>リカバリシーケンスの設定</p></li></ul><h2 class=heading id=ワークフローを読みやすいものにしましょう>ワークフローを読みやすいものにしましょう。
+<a href=#%e3%83%af%e3%83%bc%e3%82%af%e3%83%95%e3%83%ad%e3%83%bc%e3%82%92%e8%aa%ad%e3%81%bf%e3%82%84%e3%81%99%e3%81%84%e3%82%82%e3%81%ae%e3%81%ab%e3%81%97%e3%81%be%e3%81%97%e3%82%87%e3%81%86>#</a></h2><ul><li><p>すべてのコンポーネントにわかりやすい名前を選択</p></li><li><p>注記やコメントの使用</p></li><li><p>リアルタイムの実行状況のログ取得</p></li><li><p>環境設定を Config ファイルに格納</p></li></ul><h2 class=heading id=不要になったアプリケーションを終了させることで常にクリーンな状態を維持しましょう>不要になったアプリケーションを終了させることで、常にクリーンな状態を維持しましょう。
+<a href=#%e4%b8%8d%e8%a6%81%e3%81%ab%e3%81%aa%e3%81%a3%e3%81%9f%e3%82%a2%e3%83%97%e3%83%aa%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e7%b5%82%e4%ba%86%e3%81%95%e3%81%9b%e3%82%8b%e3%81%93%e3%81%a8%e3%81%a7%e5%b8%b8%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%81%aa%e7%8a%b6%e6%85%8b%e3%82%92%e7%b6%ad%e6%8c%81%e3%81%97%e3%81%be%e3%81%97%e3%82%87%e3%81%86>#</a></h2></p></div></div><div class=post-line><p class=line-date>Nov 10, 2019</p><div><p class=line-title><a href=/section2/2019-11-10-encodeuricomponent/>JavaScript URI エンコーディング</a></p><p class=line-summary><h2 class=heading id=まとめ>まとめ
+<a href=#%e3%81%be%e3%81%a8%e3%82%81>#</a></h2><p><code>encodeURI()</code>と<code>encodeURIComponent()</code>はRFC 2396準拠である。
+<code>encodeURI()</code> は完全な URI を表すのに必要な文字 (Reserved Characters) はエンコードしません。
+また、予約されていないが &ldquo;そのまま&rdquo; URI に使用できる(Unreserved Marks) 文字をエンコードしません。
+<code>encodeURIComponent()</code> は &ldquo;Unreserved Marks&rdquo; 文字をエンコードしません。</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-JavaScript data-lang=JavaScript><span style=display:flex><span><span style=color:#ff5c57>var</span> set1 <span style=color:#ff6ac1>=</span> <span style=color:#5af78e>&#34;;,/?:@&amp;=+$#&#34;</span>; <span style=color:#78787e>// Reserved Characters
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span><span style=color:#ff5c57>var</span> set2 <span style=color:#ff6ac1>=</span> <span style=color:#5af78e>&#34;-_.!~*&#39;()&#34;</span>;   <span style=color:#78787e>// Unreserved Marks
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>
+</span></span><span style=display:flex><span>console.log(<span style=color:#ff5c57>encodeURI</span>(set1)); <span style=color:#78787e>// ;,/?:@&amp;=+$
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>console.log(<span style=color:#ff5c57>encodeURI</span>(set2)); <span style=color:#78787e>// -_.!~*&#39;()
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>
+</span></span><span style=display:flex><span>console.log(<span style=color:#ff5c57>encodeURIComponent</span>(set1)); <span style=color:#78787e>// %3B%2C%2F%3F%3A%40%26%3D%2B%24
+</span></span></span><span style=display:flex><span><span style=color:#78787e></span>console.log(<span style=color:#ff5c57>encodeURIComponent</span>(set2)); <span style=color:#78787e>// -_.!~*&#39;()
+</span></span></span></code></pre></div><h2 class=heading id=rfc2396-appendix-a>rfc2396 appendix-A
+<a href=#rfc2396-appendix-a>#</a></h2><p><a href=https://tools.ietf.org/html/rfc2396#appendix-A>https://tools.ietf.org/html/rfc2396#appendix-A</a></p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>URI-reference = [ absoluteURI | relativeURI ] [ &#34;#&#34; fragment ]
+</span></span><span style=display:flex><span>      absoluteURI   = scheme &#34;:&#34; ( hier_part | opaque_part )
+</span></span><span style=display:flex><span>      relativeURI   = ( net_path | abs_path | rel_path ) [ &#34;?&#34; query ]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      hier_part     = ( net_path | abs_path ) [ &#34;?&#34; query ]
+</span></span><span style=display:flex><span>      opaque_part   = uric_no_slash *uric
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      uric_no_slash = unreserved | escaped | &#34;;&#34; | &#34;?&#34; | &#34;:&#34; | &#34;@&#34; |
+</span></span><span style=display:flex><span>                      &#34;&amp;&#34; | &#34;=&#34; | &#34;+&#34; | &#34;$&#34; | &#34;,&#34;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      net_path      = &#34;//&#34; authority [ abs_path ]
+</span></span><span style=display:flex><span>      abs_path      = &#34;/&#34;  path_segments
+</span></span><span style=display:flex><span>      rel_path      = rel_segment [ abs_path ]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      rel_segment   = 1*( unreserved | escaped |
+</span></span><span style=display:flex><span>                          &#34;;&#34; | &#34;@&#34; | &#34;&amp;&#34; | &#34;=&#34; | &#34;+&#34; | &#34;$&#34; | &#34;,&#34; )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      scheme        = alpha *( alpha | digit | &#34;+&#34; | &#34;-&#34; | &#34;.&#34; )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      authority     = server | reg_name
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      reg_name      = 1*( unreserved | escaped | &#34;$&#34; | &#34;,&#34; |
+</span></span><span style=display:flex><span>                          &#34;;&#34; | &#34;:&#34; | &#34;@&#34; | &#34;&amp;&#34; | &#34;=&#34; | &#34;+&#34; )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      server        = [ [ userinfo &#34;@&#34; ] hostport ]
+</span></span><span style=display:flex><span>      userinfo      = *( unreserved | escaped |
+</span></span><span style=display:flex><span>                         &#34;;&#34; | &#34;:&#34; | &#34;&amp;&#34; | &#34;=&#34; | &#34;+&#34; | &#34;$&#34; | &#34;,&#34; )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      hostport      = host [ &#34;:&#34; port ]
+</span></span><span style=display:flex><span>      host          = hostname | IPv4address
+</span></span><span style=display:flex><span>      hostname      = *( domainlabel &#34;.&#34; ) toplabel [ &#34;.&#34; ]
+</span></span><span style=display:flex><span>      domainlabel   = alphanum | alphanum *( alphanum | &#34;-&#34; ) alphanum
+</span></span><span style=display:flex><span>      toplabel      = alpha | alpha *( alphanum | &#34;-&#34; ) alphanum
+</span></span><span style=display:flex><span>      IPv4address   = 1*digit &#34;.&#34; 1*digit &#34;.&#34; 1*digit &#34;.&#34; 1*digit
+</span></span><span style=display:flex><span>      port          = *digit
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      path          = [ abs_path | opaque_part ]
+</span></span><span style=display:flex><span>      path_segments = segment *( &#34;/&#34; segment )
+</span></span><span style=display:flex><span>      segment       = *pchar *( &#34;;&#34; param )
+</span></span><span style=display:flex><span>      param         = *pchar
+</span></span><span style=display:flex><span>      pchar         = unreserved | escaped |
+</span></span><span style=display:flex><span>                      &#34;:&#34; | &#34;@&#34; | &#34;&amp;&#34; | &#34;=&#34; | &#34;+&#34; | &#34;$&#34; | &#34;,&#34;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      query         = *uric
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      fragment      = *uric
+</span></span><span style=display:flex><span>      
+</span></span><span style=display:flex><span>      uric          = reserved | unreserved | escaped
+</span></span><span style=display:flex><span>      reserved      = &#34;;&#34; | &#34;/&#34; | &#34;?&#34; | &#34;:&#34; | &#34;@&#34; | &#34;&amp;&#34; | &#34;=&#34; | &#34;+&#34; |
+</span></span><span style=display:flex><span>                      &#34;$&#34; | &#34;,&#34;
+</span></span><span style=display:flex><span>      unreserved    = alphanum | mark
+</span></span><span style=display:flex><span>      mark          = &#34;-&#34; | &#34;_&#34; | &#34;.&#34; | &#34;!&#34; | &#34;~&#34; | &#34;*&#34; | &#34;&#39;&#34; |
+</span></span><span style=display:flex><span>                      &#34;(&#34; | &#34;)&#34;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      escaped       = &#34;%&#34; hex hex
+</span></span><span style=display:flex><span>      hex           = digit | &#34;A&#34; | &#34;B&#34; | &#34;C&#34; | &#34;D&#34; | &#34;E&#34; | &#34;F&#34; |
+</span></span><span style=display:flex><span>                              &#34;a&#34; | &#34;b&#34; | &#34;c&#34; | &#34;d&#34; | &#34;e&#34; | &#34;f&#34;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      alphanum      = alpha | digit
+</span></span><span style=display:flex><span>      alpha         = lowalpha | upalpha
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      lowalpha = &#34;a&#34; | &#34;b&#34; | &#34;c&#34; | &#34;d&#34; | &#34;e&#34; | &#34;f&#34; | &#34;g&#34; | &#34;h&#34; | &#34;i&#34; |
+</span></span><span style=display:flex><span>                 &#34;j&#34; | &#34;k&#34; | &#34;l&#34; | &#34;m&#34; | &#34;n&#34; | &#34;o&#34; | &#34;p&#34; | &#34;q&#34; | &#34;r&#34; |
+</span></span><span style=display:flex><span>                 &#34;s&#34; | &#34;t&#34; | &#34;u&#34; | &#34;v&#34; | &#34;w&#34; | &#34;x&#34; | &#34;y&#34; | &#34;z&#34;
+</span></span><span style=display:flex><span>      upalpha  = &#34;A&#34; | &#34;B&#34; | &#34;C&#34; | &#34;D&#34; | &#34;E&#34; | &#34;F&#34; | &#34;G&#34; | &#34;H&#34; | &#34;I&#34; |
+</span></span><span style=display:flex><span>                 &#34;J&#34; | &#34;K&#34; | &#34;L&#34; | &#34;M&#34; | &#34;N&#34; | &#34;O&#34; | &#34;P&#34; | &#34;Q&#34; | &#34;R&#34; |
+</span></span><span style=display:flex><span>                 &#34;S&#34; | &#34;T&#34; | &#34;U&#34; | &#34;V&#34; | &#34;W&#34; | &#34;X&#34; | &#34;Y&#34; | &#34;Z&#34;
+</span></span><span style=display:flex><span>      digit    = &#34;0&#34; | &#34;1&#34; | &#34;2&#34; | &#34;3&#34; | &#34;4&#34; | &#34;5&#34; | &#34;6&#34; | &#34;7&#34; |
+</span></span><span style=display:flex><span>                 &#34;8&#34; | &#34;9&#34;
+</span></span></code></pre></div><h2 class=heading id=参考>参考
+<a href=#%e5%8f%82%e8%80%83>#</a></h2><p><a href=https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent>https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent</a></p></p></div></div><div class=post-line><p class=line-date>Oct 27, 2019</p><div><p class=line-title><a href=/section2/2019-10-27-uipath/>uipath ノート（一）</a></p><p class=line-summary><h2 class=heading id=変数>変数
+<a href=#%e5%a4%89%e6%95%b0>#</a></h2><ul><li>Int32</li><li>String</li><li>Boolean</li><li>GenericValue　<a href=https://docs.uipath.com/studio/lang-ja/docs/genericvalue-variables>参照</a></li></ul><blockquote><p>UiPath Studio には GenericValue 変数の自動変換メカニズムがあり、式を正しく定義することで、目的の結果を得ることができます。式の最初の要素は、Studio から操作するガイドラインとして使用されることを考慮してください。例えば、2 つの GenericValue 変数を追加し、式の最初の変数が String として定義されてた場合、最初に代入された値を元に 2 つの値を結合し、文字列となります。 Integer として定義した場合の結果は、合計の値となります。</p></blockquote><ul><li>Array</li><li>DataTime</li><li>DataTable</li></ul><p><a href=https://docs.uipath.com/studio/lang-ja/docs/managing-variables#section-browsing-for-net-variable-types>.Net 変数型を参照して探す方法</a></p><h2 class=heading id=アクティビティ>アクティビティ
+<a href=#%e3%82%a2%e3%82%af%e3%83%86%e3%82%a3%e3%83%93%e3%83%86%e3%82%a3>#</a></h2><h3 class=heading id=レイアウトダイアグラム>レイアウトダイアグラム
+<a href=#%e3%83%ac%e3%82%a4%e3%82%a2%e3%82%a6%e3%83%88%e3%83%80%e3%82%a4%e3%82%a2%e3%82%b0%e3%83%a9%e3%83%a0>#</a></h3><ul><li>シーエンス：　より高度で複雑な自動化に向こう</li><li>フローチャート：　シンプルな自動化プロジェクトに適している</li><li>ステートマシン</li><li>Global Exception Handler (グローバル例外ハンドラー)</li></ul><blockquote><p>参照：<a href=https://docs.uipath.com/studio/lang-ja/docs/workflow-design>https://docs.uipath.com/studio/lang-ja/docs/workflow-design</a></p></blockquote><h3 class=heading id=選択肢>選択肢
+<a href=#%e9%81%b8%e6%8a%9e%e8%82%a2>#</a></h3><ul><li>条件分岐(If)：　シーケンス用条件分岐</li><li>フロー条件分岐(flow desicion)：　フローチャート用条件分岐</li><li>フロースイッチ (Flow Switch)</li></ul><h3 class=heading id=繰り返し>繰り返し
+<a href=#%e7%b9%b0%e3%82%8a%e8%bf%94%e3%81%97>#</a></h3><ul><li>繰り返し（前判定）(While)</li><li>繰り返し（後判定）(Do While)</li><li>繰り返し（コレクションの各要素）(For Each)</li></ul><h3 class=heading id=データ操作>データ操作
+<a href=#%e3%83%87%e3%83%bc%e3%82%bf%e6%93%8d%e4%bd%9c>#</a></h3><ul><li>CSVを読み込み(Read CSV)<ul><li>オプションにエンコーディングを指定できる（日本語データがある場合、<code>"SHIFT-JIS"</code>を指定する）</li><li>列名を含める(IncludeColumnNames)を指定できる</li><li>出力タイプ：<code>System.Data.DataTable</code> <a href="https://docs.microsoft.com/ja-jp/dotnet/api/system.data.datatable?view=netframework-4.8">Microsoft Docs</a></li><li><code>Select</code>メソッドで半角スペースを含む列名で指定する場合、半角スペースが特殊文字ではなく文字列として認識されるため、<code>[]</code>で列名を囲う</li></ul></li></ul><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>Names.Select(&#34;[メンバー ステータス] = &#39;Yes&#39;&#34;)
+</span></span></code></pre></div><h3 class=heading id=その他>その他
+<a href=#%e3%81%9d%e3%81%ae%e4%bb%96>#</a></h3><ul><li>メッセージボックス</li><li>代入(assign)</li><li>待機 (Delay)</li><li>入力ダイアログ（input dialog）:</li><li>フォルダーを選択(Select Folder)</li><li>一行を書き込み(Write Line)：　Debug用？</li><li>アプリケーションを開く(Open Application)</li><li>ブラウザを開く(Open Browser)</li><li>ブラウザーにアタッチ(Attach Browser)</li><li>文字を入力(Type Into)</li><li>ハイライト(Highlight)</li><li><a href=#%E3%82%A2%E3%83%B3%E3%82%AB%E3%83%BC%E3%83%99%E3%83%BC%E3%82%B9-Anchor-Base>アンカーベース(Anchor Base)</a></li><li>スクリーンショットをと撮る(Take Screenshot)</li><li>要素の有無を検出(Element Exists)</li><li>要素の消滅を待つ(Wait Element Vanish)</li></ul><h2 class=heading id=レコーディング機能>レコーディング機能
+<a href=#%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%b0%e6%a9%9f%e8%83%bd>#</a></h2><p>[○]レコーディング可</p></p></div></div><div class=pagination><div class=pagination-control><a href=http://localhost:1313/section2/>&lt;</a></div><div class=page-number><p>2/2</p></div><div class=pagination-control></div></div></div></main></div><footer><div class=footer><p>© 2024 <a href=https://github.com/loyistro/Beige>loyistro/beige</a> theme</p></div></footer></body><script>function isAuto(){return document.body.classList.contains("auto")}function setTheme(){if(!isAuto())return;document.body.classList.remove("auto");let e="light";window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches&&(e="dark"),document.body.classList.add(e)}function invertBody(){document.body.classList.toggle("dark"),document.body.classList.toggle("light")}isAuto()&&window.matchMedia("(prefers-color-scheme: dark)").addListener(invertBody),setTheme()</script></html>

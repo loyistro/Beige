@@ -1,0 +1,91 @@
+<!doctype html><html lang=en-us dir=ltr><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=utf-8><meta name=viewport content="width=device-width"><link rel=icon type=image/ico href=http://localhost:1313/favicon//favicon.ico><link rel=icon type=image/png sizes=16x16 href=http://localhost:1313/favicon//favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=http://localhost:1313/favicon//favicon-32x32.png><link rel=icon type=image/png sizes=192x192 href=http://localhost:1313/favicon//android-chrome-192x192.png><link rel=apple-touch-icon sizes=180x180 href=http://localhost:1313/favicon//apple-touch-icon.png><link rel=alternate type=application/rss+xml href=http://localhost:1313/tags/algorithms/index.xml title="My website"><meta name=description content><title>Algorithms | My website
+</title><link rel=canonical href=http://localhost:1313/tags/algorithms/><meta property="og:url" content="http://localhost:1313/tags/algorithms/"><meta property="og:site_name" content="My website"><meta property="og:title" content="Algorithms"><meta property="og:description" content="Here is my website"><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><link rel=stylesheet href=/assets/combined.min.07ce338b4bb43d097400d7890f492d5be8fce1156f207c6d7cf6b096c5338732.css media=all></head><body class=auto><div class=content><header><div class=header><h1 class=header-title><a href=http://localhost:1313/ style=display:flex;align-items:center><img src=/favicon/apple-touch-icon.png alt=Icon height=40>
+<span>Home Title</span></a></h1><div class=flex><p class=small><a href=http://localhost:1313/>/home</a></p><p class=small><a href=http://localhost:1313/section1/>/Section1</a></p><p class=small><a href=http://localhost:1313/section2/>/Section2</a></p><p class=small><a href=http://localhost:1313/about>/about</a></p></div></header><main class=main><div class=list-container><div class=breadcrumbs><a href=/>Home</a>
+<span class=breadcrumbs-separator>> </span><a href=/tags/>Tags</a>
+<span class=breadcrumbs-separator>> </span><a class=breadcrumbs-current href=/tags/algorithms/>Algorithms</a></div><h2>Algorithms</h2><span style=display:block;color:var(--content-secondary);margin-bottom:2em></span><div class=post-line><p class=line-date>Jun 6, 2020</p><div><p class=line-title><a href=/section2/2020-06-06-changes-in-java-string/>Changes to String in java (from 1.7.0_06)</a></p><p class=line-summary><p>Before 1.7.0_06, <code>String</code> has 4 non static field:</p><ul><li>char[] value</li><li>int[] offset</li><li>int count</li><li>int hash</li></ul><p><code>Subing.substring</code> create a String by sharing the original String&rsquo;s internal <code>char[] value</code> and setting offset. This saves memory and makes <code>String.substring</code> run in a constant time($O(1)$).
+Meanwhile, this feature may cause <strong>memory leak</strong><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</p><p><a href=http://hg.openjdk.java.net/jdk6/jdk6/jdk/file/8deef18bb749/src/share/classes/java/lang/String.java>http://hg.openjdk.java.net/jdk6/jdk6/jdk/file/8deef18bb749/src/share/classes/java/lang/String.java</a></p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Java data-lang=Java><span style=display:flex><span><span style=color:#ff5c57>public</span> <span style=color:#ff5c57>final</span> <span style=color:#ff5c57>class</span> <span style=color:#f3f99d>String</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff5c57>implements</span> java.<span style=color:#57c7ff>io</span>.<span style=color:#57c7ff>Serializable</span>, Comparable<span style=color:#ff6ac1>&lt;</span>String<span style=color:#ff6ac1>&gt;</span>, CharSequence
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#78787e>/** The value is used for character storage. */</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff5c57>private</span> <span style=color:#ff5c57>final</span> <span style=color:#9aedfe>char</span> value<span style=color:#ff6ac1>[]</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#78787e>/** The offset is the first index of the storage that is used. */</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff5c57>private</span> <span style=color:#ff5c57>final</span> <span style=color:#9aedfe>int</span> offset;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#78787e>/** The count is the number of characters in the String. */</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff5c57>private</span> <span style=color:#ff5c57>final</span> <span style=color:#9aedfe>int</span> count;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#78787e>/** Cache the hash code for the string */</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff5c57>private</span> <span style=color:#9aedfe>int</span> hash; <span style=color:#78787e>// Default to 0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#78787e>// ...</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#78787e>// Package private constructor which shares value array for speed.</span>
+</span></span><span style=display:flex><span>    String(<span style=color:#9aedfe>int</span> offset, <span style=color:#9aedfe>int</span> count, <span style=color:#9aedfe>char</span> value<span style=color:#ff6ac1>[]</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#ff6ac1>this</span>.<span style=color:#57c7ff>value</span> <span style=color:#ff6ac1>=</span> value;
+</span></span><span style=display:flex><span>        <span style=color:#ff6ac1>this</span>.<span style=color:#57c7ff>offset</span> <span style=color:#ff6ac1>=</span> offset;
+</span></span><span style=display:flex><span>        <span style=color:#ff6ac1>this</span>.<span style=color:#57c7ff>count</span> <span style=color:#ff6ac1>=</span> count;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#78787e>// ...</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#78787e>/**
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     * Returns a new string that is a substring of this string. The
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     * substring begins at the specified &lt;code&gt;beginIndex&lt;/code&gt; and
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     * extends to the character at index &lt;code&gt;endIndex - 1&lt;/code&gt;.
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     * Thus the length of the substring is &lt;code&gt;endIndex-beginIndex&lt;/code&gt;.
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     * &lt;p&gt;
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     * Examples:
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     * &lt;blockquote&gt;&lt;pre&gt;
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     * &#34;hamburger&#34;.substring(4, 8) returns &#34;urge&#34;
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     * &#34;smiles&#34;.substring(1, 5) returns &#34;mile&#34;
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     * &lt;/pre&gt;&lt;/blockquote&gt;
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     *
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     * @param      beginIndex   the beginning index, inclusive.
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     * @param      endIndex     the ending index, exclusive.
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     * @return     the specified substring.
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     * @exception  IndexOutOfBoundsException  if the
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     *             &lt;code&gt;beginIndex&lt;/code&gt; is negative, or
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     *             &lt;code&gt;endIndex&lt;/code&gt; is larger than the length of
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     *             this &lt;code&gt;String&lt;/code&gt; object, or
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     *             &lt;code&gt;beginIndex&lt;/code&gt; is larger than
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     *             &lt;code&gt;endIndex&lt;/code&gt;.
+</span></span></span><span style=display:flex><span><span style=color:#78787e>     */</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff5c57>public</span> String <span style=color:#57c7ff>substring</span>(<span style=color:#9aedfe>int</span> beginIndex, <span style=color:#9aedfe>int</span> endIndex) {
+</span></span><span style=display:flex><span>        <span style=color:#ff6ac1>if</span> (beginIndex <span style=color:#ff6ac1>&lt;</span> 0) {
+</span></span><span style=display:flex><span>            <span style=color:#ff6ac1>throw</span> <span style=color:#ff6ac1>new</span> StringIndexOutOfBoundsException(beginIndex);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#ff6ac1>if</span> (endIndex <span style=color:#ff6ac1>&gt;</span> count) {
+</span></span><span style=display:flex><span>            <span style=color:#ff6ac1>throw</span> <span style=color:#ff6ac1>new</span> StringIndexOutOfBoundsException(endIndex);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#ff6ac1>if</span> (beginIndex <span style=color:#ff6ac1>&gt;</span> endIndex) {
+</span></span><span style=display:flex><span>            <span style=color:#ff6ac1>throw</span> <span style=color:#ff6ac1>new</span> StringIndexOutOfBoundsException(endIndex <span style=color:#ff6ac1>-</span> beginIndex);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#ff6ac1>return</span> ((beginIndex <span style=color:#ff6ac1>==</span> 0) <span style=color:#ff6ac1>&amp;&amp;</span> (endIndex <span style=color:#ff6ac1>==</span> count)) <span style=color:#ff6ac1>?</span> <span style=color:#ff6ac1>this</span> :
+</span></span><span style=display:flex><span>            <span style=color:#ff6ac1>new</span> String(offset <span style=color:#ff6ac1>+</span> beginIndex, endIndex <span style=color:#ff6ac1>-</span> beginIndex, value);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#78787e>// ...</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Since Java 1.7.0_06, <code>offset</code> and <code>count</code> fields were removed. <code>String.substring</code> makes new copies of <code>value</code>, which means we can forget about the memory leak but the runtime becomes $O(N)$ at the same time.</p></p></div></div><div class=post-line><p class=line-date>May 1, 2020</p><div><p class=line-title><a href=/section2/2020-05-01-algorithms-graphs/>Algorithms - Graphs</a></p><p class=line-summary><h2 class=heading id=undirected-graphs>Undirected Graphs
+<a href=#undirected-graphs>#</a></h2><h3 class=heading id=some-problems>Some problems
+<a href=#some-problems>#</a></h3><ul><li>Path</li><li>Shortest path</li><li>Cycle</li><li>Ehler tour: A cycle that uses each edge excatly once.</li><li>Hamilton tour: A cycle that uses each vertex exactly once<ul><li>classical NP-complete problem.</li></ul></li><li>Connectivity</li><li>MST:</li><li>Biconnectivity: A vertex whose removal disconnects the graph</li><li>Planarity</li><li>Graph isomorphism: Are two graphs identical?<ul><li>No one knows so far. A lonstanding open problem</li></ul></li></ul><h3 class=heading id=representations>Representations
+<a href=#representations>#</a></h3><p>Real-world graphs tend to be <strong>sparse</strong> (huge number of vertices, small average vertex degree).</p></p></div></div><div class=post-line><p class=line-date>Feb 18, 2017</p><div><p class=line-title><a href=/section1/2017-02-18-hash/>java散列知识点总结</a></p><p class=line-summary><p>java 的根类 <code>Object</code> 具有 <code>hashcode</code> 方法。当 <code>equal</code> 方法被重写时也应当重写 <code>hashcode</code> 方法。</p><h2 class=heading id=基本数据类型的散列码>基本数据类型的散列码
+<a href=#%e5%9f%ba%e6%9c%ac%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b%e7%9a%84%e6%95%a3%e5%88%97%e7%a0%81>#</a></h2><ul><li><code>byte</code> <code>short</code> <code>int</code> <code>char</code> 类型的搜索键将会转换为 <code>int</code>。</li><li><code>float</code> 类型的搜索键使用 <code>Float.floatToIntBits(key)</code> 作为散列码。</li><li><code>long</code> 类型的搜索键会进行折叠操作，如下：</li></ul><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span>iny hashCode <span style=color:#ff6ac1>=</span> (<span style=color:#9aedfe>int</span>) (key <span style=color:#ff6ac1>^</span> (key <span style=color:#ff6ac1>&gt;&gt;</span> 32));
+</span></span></code></pre></div><ul><li><code>double</code> 类型的搜索键会使用 <code>Double.doubleToLongBits(key)</code> 方法转换为 <code>long</code> 类型然后再进行折叠。</li></ul><h2 class=heading id=字符串类型的散列码>字符串类型的散列码
+<a href=#%e5%ad%97%e7%ac%a6%e4%b8%b2%e7%b1%bb%e5%9e%8b%e7%9a%84%e6%95%a3%e5%88%97%e7%a0%81>#</a></h2><p>对于字符串一般使用多项式散列码进行计算，</p><p><del>这里放个公式的图</del></p><p>b的较好取值为31，33，37，39，41。在 java String 类中 <code>b</code> 取31。</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#ff5c57>public</span> <span style=color:#ff5c57>static</span> <span style=color:#9aedfe>int</span> <span style=color:#57c7ff>hash</span>(String key, <span style=color:#9aedfe>int</span> tableSize)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#9aedfe>int</span> hashVal <span style=color:#ff6ac1>=</span> 0;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>for</span> (<span style=color:#9aedfe>int</span> i <span style=color:#ff6ac1>=</span> 0; i <span style=color:#ff6ac1>&lt;</span> key.<span style=color:#57c7ff>length</span>(); i<span style=color:#ff6ac1>++</span>)
+</span></span><span style=display:flex><span>        hashVal <span style=color:#ff6ac1>=</span> 37<span style=color:#ff6ac1>*</span>hashVal <span style=color:#ff6ac1>+</span> key.<span style=color:#57c7ff>charAt</span>(i);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    hashVal <span style=color:#ff6ac1>%=</span> tableSize;
+</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>if</span> (hashVal <span style=color:#ff6ac1>&lt;</span> 0)
+</span></span><span style=display:flex><span>        hashVal <span style=color:#ff6ac1>+=</span> tableSize;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#ff6ac1>return</span> hashVal;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 class=heading id=压缩散列码>压缩散列码
+<a href=#%e5%8e%8b%e7%bc%a9%e6%95%a3%e5%88%97%e7%a0%81>#</a></h2><p>由于散列码可能是很大的正数，通常应该对其进行压缩以防止超出索引的范围。若索引范围为 <code>0 ~ n - 1</code> ，通常的做法是 <code>h(hashCode) = hashCode % N</code> ，选择N为大于2的素数。
+<code>java.util.HashMap</code> 的实现中，将N设置为2的幂值，这样可以使用位运算代替上述的取模：<code>h(hashCode) = hashCode & (N - 1)</code> ，两者是完全等价的。</p></p></div></div></div></main></div><footer><div class=footer><p>© 2024 <a href=https://github.com/loyistro/Beige>loyistro/beige</a> theme</p></div></footer></body><script>function isAuto(){return document.body.classList.contains("auto")}function setTheme(){if(!isAuto())return;document.body.classList.remove("auto");let e="light";window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches&&(e="dark"),document.body.classList.add(e)}function invertBody(){document.body.classList.toggle("dark"),document.body.classList.toggle("light")}isAuto()&&window.matchMedia("(prefers-color-scheme: dark)").addListener(invertBody),setTheme()</script></html>
