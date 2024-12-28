@@ -9,7 +9,7 @@ toc: true
 readTime: true
 autonumber: true
 math: true
-showTags: false
+showTags: true
 hideBackToTop: false
 ---
 

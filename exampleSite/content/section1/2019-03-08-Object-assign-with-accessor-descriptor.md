@@ -8,7 +8,7 @@ toc: true
 readTime: true
 autonumber: true
 math: true
-showTags: false
+showTags: true
 hideBackToTop: false
 ---
 [MDN docs:](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#Copying_accessors)
