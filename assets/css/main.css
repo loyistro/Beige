@@ -139,6 +139,13 @@ code {
   border-style: none;
 }
 
+.footnote-ref {
+  text-decoration: none;
+  font-weight: bold;
+  color:rgb(199, 62, 58);
+  margin: .2rem;
+}
+
 hr {
   border: none;
   height: auto;
