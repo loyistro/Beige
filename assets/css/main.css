@@ -330,13 +330,6 @@ footer a {
   text-decoration-thickness: 1.5px;
 }
 
-.single-tags {
-  margin-top: -1rem;
-}
-
-.single-tags span {
-  margin-right: .3rem;
-}
 
 /* Single pagination */
 
@@ -348,6 +341,10 @@ footer a {
 .single-pagination a {
   margin-left: .4rem;
   margin-right: .4rem;
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
 }
 
 .single-pagination hr {
