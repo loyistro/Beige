@@ -540,6 +540,10 @@ figcaption {
   margin-bottom: calc(-0.5 * var(--h1-margin-top));
 }
 
+.breadcrumbs a {
+  text-decoration: none;
+}
+
 /* Comments */
 
 .giscus {
