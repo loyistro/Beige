@@ -4,11 +4,13 @@
 
     {{ partial "breadcrumbs.html" . }}
 
-    <h2>{{ .Title }}</h2>
     
-    <span style="display: block; color: var(--content-secondary); margin-bottom: 2em;">
-        {{ .Content }}
-    </span>
+    <h1 style="margin-bottom: .5rem;">
+        <span>{{ .Title }}</span>
+    </h1>
+    
+    <span class="list-description">{{ .Content }}</span>
+
 
     {{ $tagsPage := eq .Title "Tags" }}
 

@@ -264,10 +264,17 @@ footer a {
 }
 
 .line-summary {
-  font-size: small;
-  margin-top: .2rem !important;
-  /* font-style: italic; */
+  font-size: smaller;
+  font-style: italic;
   color: var(--content-secondary);
+  margin-bottom: 0;
+}
+
+.list-description p{
+  margin-top: 0;
+  color: var(--content-secondary);
+  font-style: italic;
+  font-size:smaller;
 }
 
 .list-container {
@@ -342,6 +349,8 @@ footer a {
   margin-bottom: 0;
   margin-top: 0;
   color: var(--content-secondary);
+  font-style: italic;
+  font-size:smaller;
 }
 
 .single-content {
