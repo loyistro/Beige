@@ -1,13 +1,15 @@
 ---
 title: uipath ノート（二）- Best Practice
 date: 2019-11-18 09:00:00
-tags:
-    - RPA
-categories:
-- notes
-keywords:
-    - RPA
-    - uipath
+summary: ""
+description: ""
+tags: ["RPA", ""]
+toc: true
+readTime: true
+autonumber: true
+math: true
+showTags: false
+hideBackToTop: false
 ---
 
 ## 時間をかけて各ワークフローに適したレイアウトを選択しましょう。

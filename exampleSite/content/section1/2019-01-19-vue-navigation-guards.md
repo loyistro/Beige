@@ -1,15 +1,15 @@
 ---
 title: VueのNavigation Guards
 date: 2019-01-25 09:00:00
-tags:
-    - JavaScript
-    - Vue.js
-category: tech
-keywords:
-    - Vue.js
-    - Javascript
-    - ES2015
-    - ES6
+summary: "VueのNavigation Guards"
+description: ""
+tags: ["JavaScript", "Vue.js"]
+toc: true
+readTime: true
+autonumber: true
+math: true
+showTags: false
+hideBackToTop: false
 ---
 
 Navigation guards are provided by `vue-router`.

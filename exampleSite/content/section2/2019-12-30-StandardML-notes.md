@@ -1,12 +1,15 @@
 ---
 title: Standard ML notes
 date: 2019-12-30 09:00:00
-tags:
-    - SML
-categories:
-- notes
-keywords:
-    - SML
+summary: ""
+description: ""
+tags: ["SML", ""]
+toc: true
+readTime: true
+autonumber: true
+math: true
+showTags: false
+hideBackToTop: false
 ---
 
 ## Basics

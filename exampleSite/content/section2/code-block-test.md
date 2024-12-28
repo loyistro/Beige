@@ -1,13 +1,15 @@
 ---
 title: Code Block Test
 date: 2021-06-27 09:00:00
-tags:
-    - test
-categories:
-    - tech
-keywords:
-    - markdown
-    - code block
+summary: ""
+description: ""
+tags: ["test", ""]
+toc: true
+readTime: true
+autonumber: true
+math: true
+showTags: false
+hideBackToTop: false
 ---
 
 

@@ -1,13 +1,15 @@
 ---
 title: Algorithms - Graphs
 date: 2020-05-01 09:00:00
-tags:
-    - Algorithms
-category: notes
-keywords:
-    - Algorithms
-    - Graphs
-mathjax: true
+summary: ""
+description: ""
+tags: ["Algorithms", ""]
+toc: true
+readTime: true
+autonumber: true
+math: true
+showTags: false
+hideBackToTop: false
 ---
 
 ## Undirected Graphs

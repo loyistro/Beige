@@ -1,13 +1,15 @@
 ---
 title: JavaScript URI エンコーディング
 date: 2019-11-10 09:00:00
-tags:
-    - JavaScript
-categories:
-- notes
-keywords:
-    - Javascript
-    - encodeURIComponent
+summary: ""
+description: ""
+tags: ["JavaScript", ""]
+toc: true
+readTime: true
+autonumber: true
+math: true
+showTags: false
+hideBackToTop: false
 ---
 
 ## まとめ

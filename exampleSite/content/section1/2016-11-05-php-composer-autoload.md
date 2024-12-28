@@ -1,13 +1,15 @@
 ---
 title: composer中的autoload
 date: 2016-11-05 02:42:06
-category: tech
-tags:
-    - php
-keywords:
-    - composer
-    - autoload
-    - psr-4
+summary: "composer中的autoload"
+description: ""
+tags: ["php", "tech"]
+toc: true
+readTime: true
+autonumber: true
+math: true
+showTags: false
+hideBackToTop: false
 ---
 
 composer的autoload可以轻松的实现php的自动加载。在`composer.json`中添加`autoload`字段即可。当前支持 `PSR-0` `PSR-4` `classmap`解析和`files`包含。官方推荐PSR-4标准（添加类时不需要重新生成加载器）。

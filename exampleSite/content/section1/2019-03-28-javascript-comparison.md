@@ -1,14 +1,15 @@
 ---
 title: JavaScript Comparison operation at a glance
 date: 2019-03-28 09:00:00
-tags:
-    - JavaScript
-category: tech
-keywords:
-    - Javascript
-    - ES2015
-    - ES6
-summary: JavaScript Comparison operation at a glance
+summary: "JavaScript Comparison operation at a glance"
+description: ""
+tags: ["JavaScript", ""]
+toc: true
+readTime: true
+autonumber: true
+math: true
+showTags: false
+hideBackToTop: false
 ---
 
 When given a scenario like:

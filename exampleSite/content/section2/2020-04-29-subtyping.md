@@ -1,11 +1,15 @@
 ---
 title: Programming Language - Subtyping
 date: 2020-04-29 09:00:00
-tags:
-    - programming language
-category: tech
-keywords:
-    - subtyping
+summary: ""
+description: ""
+tags: ["programming language", ""]
+toc: true
+readTime: true
+autonumber: true
+math: true
+showTags: false
+hideBackToTop: false
 ---
 
 ## Some Good Subtyping Rules
