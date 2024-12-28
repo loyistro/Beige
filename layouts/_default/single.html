@@ -39,9 +39,9 @@
       {{ range $index, $tag := . }}
       {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $tag) -}}
 
-      <span>
+      <a href="{{ .RelPermalink }}">
         <span style="color: red;">#</span>{{ .LinkTitle }}
-      </span>
+      </a>
       
       {{ end }}
       {{ end }}
