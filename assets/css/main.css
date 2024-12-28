@@ -70,11 +70,7 @@ li {
 }
 
 a {
-  color: var(--content-primary);
   text-decoration: underline;
-  text-decoration-color: red;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1.5px;
 }
 
 /* Code blocks */
@@ -189,20 +185,22 @@ hr:before {
   text-decoration: none;
 }
 
-/* Menu */
+/* Menu item */
+
+/* 默认菜单项颜色 */
 
 .menu a {
-  text-decoration: none;
+  color: inherit;  /* 确保链接继承父元素的颜色 */
+  text-decoration: none; /* 默认去掉下划线 */
 }
 
+/* 激活时的样式 */
 .menu .active a {
   font-weight: bold;
   text-decoration: underline;
-  text-decoration-color: black;
-  text-decoration-thickness: 2px;
+  text-underline-offset: 4px; /* 设置下划线的偏移量 */
+  text-decoration-thickness: 2.5px; /* 设置下划线的粗细 */
 }
-
-
 
 /* Footer */
 
