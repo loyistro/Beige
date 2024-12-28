@@ -323,6 +323,13 @@ footer a {
   margin-bottom: 5rem;
 }
 
+.single-content a {
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+}
+
 .single-tags {
   margin-top: -1rem;
 }
