@@ -587,9 +587,11 @@ blockquote {
   margin: 1.5rem;
   margin-left: 0;
   margin-right: 0;
-  border-left: solid 2px;
+  border-left: solid 4px;
   color: var(--content-secondary);
   font-style: italic;
+  font-weight: 200;
+  font-size: smaller;
 }
 
 blockquote p {
