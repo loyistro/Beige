@@ -20,8 +20,8 @@ params:
   Environment: "production"
 
   ### Appearance settings ###
-  theme: "dark"             # auto, light, dark
-  colorPalette: "gofun"     # beige, default, catpuccin, gruvebox, eink
+  theme: "auto"             # auto, light, dark
+  colorPalette: "gofun"     # gofun, default, catpuccin, gruvebox, eink
   hideHeader: false
   
   ### Meta description for the website ###
@@ -107,6 +107,6 @@ markup:
     lineNoStart: 1
     lineNos: false
     lineNumbersInTable: true
-    noClasses: true
+    noClasses: false
     tabWidth: 4
     style: "base16-snazzy"
