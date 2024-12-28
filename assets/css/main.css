@@ -133,10 +133,17 @@ code {
 
 hr {
   border: none;
-  height: 1px;
-  background: var(--content-secondary);
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  height: auto;
+  text-align: center;
+}
+
+hr:before {
+  content: "////////////////////";
+  display: inline-block;
+  color: var(--content-secondary);
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  line-height: 1;
 }
 
 /* Header */
