@@ -68,10 +68,6 @@ li {
   margin-left: var(--li-indent);
 }
 
-a {
-  text-decoration: underline;
-}
-
 /* Code blocks */
 
 pre {
