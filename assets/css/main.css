@@ -197,12 +197,11 @@ hr:before {
   text-decoration: none;
 }
 
-/* 激活时的样式 */
 .menu .active a {
   font-weight: bold;
   text-decoration: underline;
-  text-underline-offset: 4px;
   text-decoration-thickness: 2.5px;
+  text-decoration-color: var(--content-primary);
 }
 
 /* Footer */
