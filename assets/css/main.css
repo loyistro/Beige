@@ -140,6 +140,7 @@ hr {
   border: none;
   height: auto;
   text-align: center;
+  margin: 0;
 }
 
 hr:before {
