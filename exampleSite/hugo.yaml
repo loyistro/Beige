@@ -1,34 +1,23 @@
 baseURL: "https://example.org/"
 languageCode: "en-us"
 title: "My website"
-theme: "Gofun"
-
-### taxonomies ###
-taxonomies:
-  tag: "tags"
-
-## Google analytics code ##
-googleAnalytics: "G-xxxxxxxxx" 
-
-### Build Optimization ###
-minify:
-  disableXML: true
-  minifyOutput: true
+theme: "gofun"
 
 params:
-  ### Environment settings for umami and GA###
+  ### Environment settings for umami###
   Environment: "production"
-
-  ### Appearance settings ###
-  theme: "auto"             # auto, light, dark
-  colorPalette: "gofun"     # gofun, default, catpuccin, gruvebox, eink
-  hideHeader: false
   
   ### Meta description for the website ###
   description: "Here is my website"
   faviconPath: "/favicon/"
+  
+  ### Appearance settings ###
+  theme: "auto"             # auto, light, dark
+  colorPalette: "gofun"     # gofun, default, catpuccin, gruvebox, eink
+  hideHeader: false
+  breadcrumbs: true
 
-  ### Home page icon and title ###
+  ### Homepage icon and title ###
   label:
     text: "Gofun Theme"
   #  icon: "/favicon/apple-touch-icon.png"
@@ -45,33 +34,30 @@ params:
     - name: "Section2"
       url: "/section2/"
       newTab: false
+
+  ### Social icons ###
+  social:
+    - name: "github"
+      url: "https://github.com/loyistro/gofun"
   
   ### Collection to display on home page ###
   showhomeCollection: true
+  maxContent: 5
   homeCollection:
    - section: "section1"
      title: "Last section1"
    - section: "section2"
      title: "Last section2"
-  
-  ### Lists parameters ###
-  paginationSize: 5
-  maxContent: 5 
-  showlistSummaries: true
-  listDateFormat: "Jan 2, 2006"
-  singleDateFormat: "Jan 2, 2006"
-  
-  ### Breadcrumbs ###
-  breadcrumbs: true
-  
-  ### Social icons ###
-  social:
-    - name: "github"
-      url: "https://github.com/loyistro/Gofun"
 
   ### Footer ###
   showFooter: true
 #  footerContent: I'm a footer
+
+  ### Lists parameters ###
+  paginationSize: 5
+  showlistSummaries: true
+  listDateFormat: "Jan 2, 2006"
+  singleDateFormat: "Jan 2, 2006"
 
   ### Giscus comments ###
   giscus:
@@ -98,3 +84,16 @@ markup:
     noClasses: false
     tabWidth: 4
     style: "base16-snazzy"
+
+
+### taxonomies ###
+taxonomies:
+  tag: "tags"
+
+## Google analytics code ##
+googleAnalytics: "G-xxxxxxxxx" 
+
+### Build Optimization ###
+minify:
+  disableXML: true
+  minifyOutput: true
