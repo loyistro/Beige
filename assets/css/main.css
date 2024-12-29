@@ -141,6 +141,15 @@ code {
   border-style: none;
 }
 
+.footnotes hr {
+  border: none;
+  border-top: 1px solid var(--content-secondary);
+  margin: 1rem 0;
+  height: 0;
+  color: var(--content-secondary);
+}
+
+
 .footnote-ref {
   text-decoration: none;
   font-weight: bold;
