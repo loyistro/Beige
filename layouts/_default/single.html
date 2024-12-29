@@ -62,14 +62,6 @@
   </aside>
   {{ end }}
 
-  <!-- Page Content -->
-  <div class="single-content">
-    {{ .Content }}
-    {{ if .Site.Params.giscus.enable }}
-    {{ partial "comments.html" . }}
-    {{ end }}
-  </div>
-
   {{ if .Store.Get "hasMermaid" }}
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';

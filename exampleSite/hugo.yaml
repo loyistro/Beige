@@ -40,7 +40,7 @@ params:
     - name: "github"
       url: "https://github.com/loyistro/gofun"
   
-  ### Collection to display on home page ###
+  ### Collection to display on homepage ###
   showhomeCollection: true
   maxContent: 5
   homeCollection:
@@ -58,16 +58,6 @@ params:
   showlistSummaries: true
   listDateFormat: "Jan 2, 2006"
   singleDateFormat: "Jan 2, 2006"
-
-  ### Giscus comments ###
-  giscus:
-    enable: false
-    repo: "user/repo"
-    repoid: "repoId"
-    category: "General"
-    categoryid: "categoryId"
-    mapping: "pathname"
-    theme: "preferred_color_scheme"
 
 #### Syntax highligth ####
 markup:
