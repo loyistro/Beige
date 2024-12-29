@@ -1,4 +1,4 @@
-# Gofun theme
+# Gofun Hugo Theme
 ![light-homepage](https://github.com/loyistro/gofun/blob/main/images/homepage.webp)
 
 > Gofun is a simple Hugo theme based on [tomfran/typo](https://github.com/tomfran/typo) since 2024/12/26, I truly appreciate the thought and effort behind this beautifully minimalistic design.
