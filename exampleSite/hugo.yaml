@@ -66,12 +66,8 @@ params:
   
   ### Social icons ###
   social:
-    - name: "x"
-      url: "https://www.linkedin.com/in/user/"
-    - name: "medium"
-      url: "https://medium.com/@user"
     - name: "github"
-      url: "https://github.com/user"
+      url: "https://github.com/loyistro/Gofun"
 
   ### Footer ###
   showFooter: true

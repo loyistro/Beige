@@ -1,11 +1,7 @@
-# HI
+# Welcome!
 
-Typo is a Hugo theme backed by simplicity. The goal is to have a website centered around content and nothing more.
+Gofun is a simple Hugo theme based on [tomfran/typo](https://github.com/tomfran/typo), I truly appreciate the thought and effort behind this beautifully minimalistic design.
 
-[loyistro/beige](https://github.com/loyistro/Beige)
+To enhance its functionality, I’ve added new features and customized some settings.
 
-Welcome to the wiki. Here you’ll learn how to get started with this theme and what features are available.
-
-Do you need help, or have ideas for future developments? Feel free to ask in the discussion section.
-
-I want to thank every contributor to the theme! To anyone reading, feel free to become one by opening a Pull Request 😊
+Check out the tutorial to kickstart your journey with this theme! Your feedback and pull requests on [GitHub](https://github.com/loyistro/Gofun) are always welcome.
