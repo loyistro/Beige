@@ -13,6 +13,6 @@ To enhance its functionality, I’ve added new features and customized some sett
 - Add ‘////’ as a divider style, make it more funny.
 - Reduce the SVG.html file by using the most common icons.
 
-Check out the [tutorial](https://github.com/loyistro/gofun.wiki) to kickstart your journey with this theme! Your feedback and pull requests on [GitHub](https://github.com/loyistro/gofun) are always welcome.
+Check out the [tutorial](https://github.com/loyistro/gofun/wiki) to kickstart your journey with this theme! Your feedback and pull requests on [GitHub](https://github.com/loyistro/gofun) are always welcome.
 
 
