@@ -1,62 +1,18 @@
-![banner](https://raw.githubusercontent.com/tomfran/typo/main/images/banner-light.webp)
+# Gofun theme
+![light-homepage](https://github.com/loyistro/gofun/blob/main/images/light-homepage.webp)
 
-# Typo, a Hugo theme.
+> Gofun is a simple Hugo theme based on [tomfran/typo](https://github.com/tomfran/typo) since 2024/12/26, I truly appreciate the thought and effort behind this beautifully minimalistic design.
 
-Typo is a theme backed by simplicity, as you can see in the screenshots below. The goal was to have a website centered around content and nothing more.
+More screenshot can check on [here](https://github.com/loyistro/gofun/tree/main/images).
 
-[![wiki](https://img.shields.io/badge/doc-wiki-orange)](https://tomfran.github.io/typo-wiki/)
-[![hugo-typo](https://img.shields.io/badge/hugo_themes-@typo-red)](https://themes.gohugo.io/themes/typo/)
-[![GitHub Release](https://img.shields.io/github/v/release/tomfran/typo)](https://github.com/tomfran/typo/releases/latest)
-[![last-commit](https://img.shields.io/github/last-commit/tomfran/typo)](https://github.com/tomfran/typo/commits/)
+To enhance its functionality, I’ve added new features and customized some settings:
+- Add a new color palette named “**Gofun**”, inspired by same name of the [traditional colors of Japan](https://color-term.com/color/gofun-fffffb/).
+- Use awsome font [Bricolage Grotesque](https://github.com/ateliertriay/bricolage) as default.
+- Support multiple collection display on homepage.
+- Customize your syntax highlighting with a CSS file.
+- Add ‘////’ as a divider style, make it more funny.
+- Reduce the SVG.html file by using the most common icons.
 
-**Homepage**
+Check out the [tutorial](https://github.com/loyistro/gofun.wiki.git) to kickstart your journey with this theme! Your feedback and pull requests on [GitHub](https://github.com/loyistro/gofun) are always welcome.
 
-![1](https://raw.githubusercontent.com/tomfran/typo/main/images/1.webp)
 
-**Article**
-
-![2](https://raw.githubusercontent.com/tomfran/typo/main/images/2.webp)
-
-![3](https://raw.githubusercontent.com/tomfran/typo/main/images/3.webp)
-
----
-
-**Table of content**
-
-- [1 Setup](#1-setup)
-- [2 Features](#2-features)
-- [3 References](#3-references)
-- [4 Support](#4-support)
-- [5 Typo Users](#5-typo-users)
-- [6 Questions or Ideas?](#6-questions-or-ideas)
-
----
-
-## 1 Setup
-
-You can install Typo in various ways, the [setup wiki](https://tomfran.github.io/typo-wiki/setup) page highlights how to do so.
-
-## 2 Features
-
-The theme has various features, such as header auto-numbering, auto dark mode, color palettes, and dark and light images. 
-Have a look at the [wiki](https://tomfran.github.io/typo-wiki/features) for a complete overview of the available ones.
-
-## 3 References
-
-The SVGs for social icons are taken from [Simple Icons](https://github.com/simple-icons/simple-icons).
-
-## 4 Support
-
-If you use the theme or found it useful you can support me by leaving a star ⭐ to Typo's Github repository.
-
-Contributions are always welcome, feel free to open issues and PRs with fixes or new features.
-
-Also make sure to update the [Wiki](https://github.com/tomfran/typo-wiki) when introducing a new feature.
-
-## 5 Typo Users
-
-If you're using Typo for your website, feel free to add your website to [the list](https://github.com/tomfran/typo/blob/main/USERS.md) alongside what you do! 😊
-
-## 6 Questions or Ideas? 
-
-Use the [discussion tab](https://github.com/tomfran/typo/discussions) to share ideas/tips/questions about Typo or Hugo in general!
