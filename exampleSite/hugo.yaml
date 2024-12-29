@@ -76,7 +76,7 @@ params:
   ### Footer ###
   showFooter: true
   footerContent: >
-    &copy; 2024 [loyistro/beige](https://github.com/loyistro/Beige) theme
+    &copy; 2024 [loyistro/gofun](https://github.com/loyistro/Gofun) theme
 
   ### Giscus comments ###
   giscus:
