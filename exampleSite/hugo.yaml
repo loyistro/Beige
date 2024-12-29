@@ -59,6 +59,12 @@ params:
   listDateFormat: "Jan 2, 2006"
   singleDateFormat: "Jan 2, 2006"
 
+### Umami analytics ###
+  umami:
+    enable: true
+    websiteId: "unique-website-id"
+    jsLocation: "http://example.org/umami.js"
+
 #### Syntax highligth ####
 markup:
   highlight:
