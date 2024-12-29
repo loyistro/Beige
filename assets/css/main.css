@@ -382,6 +382,8 @@ footer a {
 
 .single-tags a {
   margin-right: .5rem;
+  text-decoration-color: var(--content-secondary);
+  text-decoration-thickness: 1px;
 }
 
 
