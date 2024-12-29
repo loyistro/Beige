@@ -1,7 +1,7 @@
 baseURL: "https://example.org/"
 languageCode: "en-us"
 title: "My website"
-theme: "Beige"
+theme: "Gofun"
 
 ### taxonomies ###
 taxonomies:
@@ -30,7 +30,7 @@ params:
 
   ### Home page icon and title ###
   label:
-    text: "Home Title"
+    text: "Gofun Theme"
   #  icon: "/favicon/apple-touch-icon.png"
     iconHeight: 40
   
@@ -41,11 +41,9 @@ params:
       newTab: false
     - name: "Section1"
       url: "/section1/"
+      newTab: false
     - name: "Section2"
       url: "/section2/"
-      newTab: false
-    - name: "about"
-      url: "/about"
       newTab: false
   
   ### Intro on main page, content is markdown ###
