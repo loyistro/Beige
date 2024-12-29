@@ -434,6 +434,10 @@ footer a {
   font-size: medium;
 }
 
+.toc li a{
+  text-decoration: none;
+}
+
 .toc ul {
   margin-top: .1rem;
   margin-bottom: .1rem;
