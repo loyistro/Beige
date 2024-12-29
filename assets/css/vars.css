@@ -13,8 +13,8 @@
     --header-menu-bottom-gap: .5rem;
 
     /* Typography */
-    --font-body: 'Bricolage Grotesque', 'Literata', Georgia, Cambria, 'Noto serif', 'Droif serif', ui-serif, serif;
-    --font-mono: 'Bricolage Grotesque', "Monaspace", ui-monospace, monospace;
+    --font-body: 'Bricolage Grotesque', -apple-system, 'Literata', Georgia, Cambria, 'Noto serif', 'Droif serif', ui-serif, serif;
+    --font-mono: 'Bricolage Grotesque', -apple-system, "Monaspace", ui-monospace, monospace;
 
     --h1-margin-top: 2rem;
     --h1-margin-bottom: .5rem;
