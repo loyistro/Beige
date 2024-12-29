@@ -46,11 +46,6 @@ params:
       url: "/section2/"
       newTab: false
   
-  ### Intro on main page, content is markdown ###
-  homeIntroTitle: "Hi!"
-  homeIntroContent: >
-    Here is my website.
-  
   ### Collection to display on home page ###
   showhomeCollection: true
   homeCollection:

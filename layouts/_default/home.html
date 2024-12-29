@@ -2,21 +2,16 @@
 
 {{ .Content }}
 
+
 <!-- Intro summary section -->
 
-{{ if or .Site.Params.homeIntroTitle .Site.Params.homeIntroContent }}
-<div class="intro">
-    {{ with .Site.Params.homeIntroTitle }}
-    <h1>{{ . }}</h1>
-    {{ end }}
-
-    {{ with .Site.Params.homeIntroContent }}
-    <div class="single-content">
-        <p>{{ . | markdownify }}</p>
+{{ $homeIntro := readFile "content/home-intro.md" }}
+{{ if $homeIntro }}
+    <div class="single-content" style="margin-bottom: 0rem;">
+        {{ $homeIntro | markdownify }}
     </div>
-    {{ end }}
-</div>
 {{ end }}
+
 
 <!-- Social Icons -->
 
