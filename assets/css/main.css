@@ -71,6 +71,7 @@ li {
 
 li code {
   background-color: var(--code-background);
+  color: var(--code-text);
 }
 
 a {
