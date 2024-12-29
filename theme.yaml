@@ -1,9 +1,8 @@
-name: Typo
+name: Gofun
 license: MIT
-licenselink: https://github.com/tomfran/typo/blob/main/LICENSE
+licenselink: https://github.com/loyistro/gofun/blob/main/LICENSE
 description: A simple Hugo theme
-homepage: https://github.com/tomfran/typo
-demosite: https://tomfran.github.io/
+homepage: https://github.com/loyistro/gofun
 tags:
   - responsive
   - simple
@@ -25,5 +24,5 @@ features:
   - dark-light-images
   - color-palettes
 author:
-  name: Francesco Tomaselli
-  homepage: https://tomfran.github.io/
+  name: Loyistro
+  homepage: https://github.com/loyistro/gofun
